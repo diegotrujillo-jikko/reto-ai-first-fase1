@@ -33,14 +33,14 @@ En este reto, el foco no es modificar la aplicación existente, sino **probarla*
 
 ### Endpoints principales
 
-| Método | Ruta | Descripción |
-|---|---|---|
-| GET | `/api/health` | Verifica disponibilidad del servicio |
-| GET | `/api/products` | Lista de productos |
-| GET | `/api/products/{id}` | Detalle de producto |
-| GET | `/api/pricing/quote` | Cotiza impuestos y total según país |
-| POST | `/api/orders` | Crea una orden |
-| GET | `/api/orders/{id}` | Detalle de orden |
+| Método | Ruta                 | Descripción                          |
+| ------ | -------------------- | ------------------------------------ |
+| GET    | `/api/health`        | Verifica disponibilidad del servicio |
+| GET    | `/api/products`      | Lista de productos                   |
+| GET    | `/api/products/{id}` | Detalle de producto                  |
+| GET    | `/api/pricing/quote` | Cotiza impuestos y total según país  |
+| POST   | `/api/orders`        | Crea una orden                       |
+| GET    | `/api/orders/{id}`   | Detalle de orden                     |
 
 ### Requisitos de negocio clave
 

@@ -7,11 +7,13 @@ App full-stack mínima y autocontenida que sirve como **sistema bajo prueba (SUT
 ## Cómo ejecutarla
 
 **Opción A — Docker (recomendada, un comando):**
+
 ```bash
 docker compose up --build
 ```
 
 **Opción B — Python (3.10+):**
+
 ```bash
 pip install -r requirements.txt
 uvicorn app:app --port 8000
@@ -23,31 +25,33 @@ La base de datos SQLite (`minitienda.db`) se crea y se siembra sola en el primer
 
 ## Componentes (todas las capas que debes probar)
 
-| Capa | Dónde |
-|---|---|
-| Frontend | Página en `/` (lista productos, crea órdenes) |
-| Backend / API | Rutas bajo `/api` |
-| Base de datos | SQLite local (`minitienda.db`) |
-| Web service | Endpoints REST (ver abajo) |
-| Integración | Servicio de precios/impuestos `/api/pricing/quote` |
+| Capa          | Dónde                                              |
+| ------------- | -------------------------------------------------- |
+| Frontend      | Página en `/` (lista productos, crea órdenes)      |
+| Backend / API | Rutas bajo `/api`                                  |
+| Base de datos | SQLite local (`minitienda.db`)                     |
+| Web service   | Endpoints REST (ver abajo)                         |
+| Integración   | Servicio de precios/impuestos `/api/pricing/quote` |
 
 ## Contrato de la API
 
-| Método | Ruta | Descripción |
-|---|---|---|
-| GET | `/api/health` | Estado del servicio |
-| GET | `/api/products` | Lista de productos |
-| GET | `/api/products/{id}` | Detalle de producto (404 si no existe) |
-| GET | `/api/pricing/quote?subtotal_cents=&country=` | Cotización de impuesto/total |
-| POST | `/api/orders` | Crea una orden |
-| GET | `/api/orders/{id}` | Detalle de una orden (404 si no existe) |
+| Método | Ruta                                          | Descripción                             |
+| ------ | --------------------------------------------- | --------------------------------------- |
+| GET    | `/api/health`                                 | Estado del servicio                     |
+| GET    | `/api/products`                               | Lista de productos                      |
+| GET    | `/api/products/{id}`                          | Detalle de producto (404 si no existe)  |
+| GET    | `/api/pricing/quote?subtotal_cents=&country=` | Cotización de impuesto/total            |
+| POST   | `/api/orders`                                 | Crea una orden                          |
+| GET    | `/api/orders/{id}`                            | Detalle de una orden (404 si no existe) |
 
 **Crear orden** — cuerpo:
+
 ```json
-{ "country": "CO", "items": [ { "product_id": 1, "qty": 2 } ] }
+{ "country": "CO", "items": [{ "product_id": 1, "qty": 2 }] }
 ```
 
 Notas de negocio:
+
 - Los montos están en **centavos** (`price_cents`, `total_cents`, etc.).
 - Impuesto por país: `CO` = 19%, `US` = 0%, cualquier otro = 10% por defecto.
 - Al crear una orden, el stock del producto se descuenta.
@@ -55,6 +59,7 @@ Notas de negocio:
 ## Simular una caída de la integración
 
 Para probar el comportamiento ante un fallo del servicio de precios, arranca con:
+
 ```bash
 PRICING_FAIL=1 uvicorn app:app --port 8000      # o la variable en docker-compose
 ```
