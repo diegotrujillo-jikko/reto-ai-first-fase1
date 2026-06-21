@@ -4,9 +4,26 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Context
 
-This is the **Reto AI-First · Fase 1 — Track QA**. The goal is NOT to modify the app; it is to **build and execute a complete test strategy** against the provided base app using AI assistance. No test scripts are written manually — they are specified, generated, and iterated via AI.
+This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation course followed by the Reto Fase 1. Full program details in `programa-ai-first-fase1.md` (+ `.pdf`).
 
-The deliverable is a test suite + `HERMES_CONTEXT.md` documenting the process, decisions, and findings.
+### Program structure
+
+| Week | Theme |
+|------|-------|
+| 1 | Claude CLI + Spec Engineering (2 workshops) |
+| 2 | CLAUDE.md (2 workshops) |
+| 3 | Plan & Loop · MCP Servers · Subagents · Git (2 workshops) |
+| 4 | **Reto Fase 1** — DEV track + QA track in parallel |
+
+**Foundational rule:** every AI project starts with `/init`. This generates the base `CLAUDE.md` and establishes the AI contract before any spec or code.
+
+### Two tracks in Week 4
+
+**Track DEV** — build an end-to-end product (backend + frontend + DB + integration) in 4 days, free idea, no manual code, via Hermes.
+
+**Track QA** — design and execute a full test strategy on `mini-tienda-base` (the SUT in this repo) in 4 days, no manual scripts, via Hermes. Goal is NOT to modify the app — test it.
+
+Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday.
 
 ## Running the SUT (System Under Test)
 
