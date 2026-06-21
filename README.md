@@ -4,11 +4,11 @@ Este repositorio contiene el proyecto del **Reto AI-First · Fase 1**, centrado 
 
 ## Contenido del repositorio
 
-- `mini-tienda-base/`: aplicación base mínima y autocontenida que sirve como **Sistema Bajo Prueba (SUT)**.
-- `reto-ai-first-fase1-brief.pdf`: brief del reto original.
-- `docs/reto-ai-first-fase1-evaluacion-interna.pdf`: documento de evaluación interna.
-- `reto-ai-first-fase1-qa-brief.pdf`: brief de QA con criterios, alcance y expectativa de pruebas.
-- Archivos adicionales en PDF/Mardown que documentan el reto y el alcance de la prueba.
+- `programa-ai-first-fase1.pdf`: **programa completo** — curso de 4 semanas + Reto Fase 1 (DEV y QA).
+- `mini-tienda-base/`: aplicación base mínima y autocontenida que sirve como **Sistema Bajo Prueba (SUT)** para el Track QA.
+- `reto-ai-first-fase1-brief.pdf`: brief del Reto Fase 1 — Track DEV.
+- `reto-ai-first-fase1-qa-brief.pdf`: brief del Reto Fase 1 — Track QA.
+- `docs/reto-ai-first-fase1-evaluacion-interna.pdf`: documento de evaluación interna (acceso restringido).
 
 ## Qué es este reto
 
