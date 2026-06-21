@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MiniTienda</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+    h1 { margin-bottom: .25rem; }
+    .muted { color: #666; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    th, td { text-align: left; padding: .5rem; border-bottom: 1px solid #eee; }
+    input[type=number] { width: 4rem; }
+    button { padding: .5rem 1rem; cursor: pointer; }
+    select { padding: .4rem; }
+    #result { margin-top: 1rem; padding: 1rem; background: #f6f8fa; border-radius: 6px; white-space: pre-wrap; display: none; }
+  </style>
+</head>
+<body>
+  <h1>MiniTienda</h1>
+  <p class="muted">Aplicación base para pruebas. Selecciona cantidades y crea una orden.</p>
+
+  <label>País:
+    <select id="country">
+      <option value="CO">CO (IVA 19%)</option>
+      <option value="US">US (0%)</option>
+      <option value="MX">MX (default 10%)</option>
+    </select>
+  </label>
+
+  <table>
+    <thead>
+      <tr><th>Producto</th><th>Precio</th><th>Stock</th><th>Cantidad</th></tr>
+    </thead>
+    <tbody id="products"></tbody>
+  </table>
+
+  <button id="place-order">Crear orden</button>
+  <div id="result"></div>
+
+  <script>
+    const fmt = (c) => "$" + (c / 100).toLocaleString("es-CO");
+
+    async function loadProducts() {
+      const res = await fetch("/api/products");
+      const products = await res.json();
+      const tbody = document.getElementById("products");
+      tbody.innerHTML = "";
+      for (const p of products) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${p.name}</td>
+          <td>${fmt(p.price_cents)}</td>
+          <td data-stock="${p.id}">${p.stock}</td>
+          <td><input type="number" min="0" value="0" data-product="${p.id}"></td>`;
+        tbody.appendChild(tr);
+      }
+    }
+
+    async function placeOrder() {
+      const country = document.getElementById("country").value;
+      const inputs = document.querySelectorAll("input[data-product]");
+      const items = [];
+      for (const input of inputs) {
+        const qty = parseInt(input.value, 10);
+        if (qty > 0) items.push({ product_id: parseInt(input.dataset.product, 10), qty });
+      }
+      const result = document.getElementById("result");
+      result.style.display = "block";
+      if (items.length === 0) { result.textContent = "Agrega al menos un producto."; return; }
+
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ country, items }),
+      });
+      const data = await res.json();
+      if (!res.ok) { result.textContent = "Error: " + (data.detail || res.status); return; }
+      result.textContent =
+        `Orden #${data.id} creada\n` +
+        `Subtotal: ${fmt(data.subtotal_cents)}\n` +
+        `Impuesto: ${fmt(data.tax_cents)}\n` +
+        `Total: ${fmt(data.total_cents)}`;
+      loadProducts();
+    }
+
+    document.getElementById("place-order").addEventListener("click", placeOrder);
+    loadProducts();
+  </script>
+</body>
+</html>

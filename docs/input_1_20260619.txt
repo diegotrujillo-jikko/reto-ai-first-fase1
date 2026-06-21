@@ -1,0 +1,246 @@
+Hola, Diego.
+¿Cómo vas?
+¿Qué tal todo?
+¿Qué tal, Javier?
+Buenos días.
+Gracias.
+Ah, bueno.
+Me alegra.
+Espérame ya.
+Vamos a ver si...
+¿Será que Juan sí se logra conectar o lo hacemos tú y yo?
+La verdad no sé.
+Él fue el que me la pedió.
+Sí, Fernando, pero yo estoy hablando con él.
+View.
+Read Me Notes.
+Se está pidiendo esta...
+¿Cuánta gente está ahí tomando apuntes?
+Dios mío.
+Está muy bien.
+Es que ven, poned cuidado.
+Yo te cuento un poquito qué es lo que estuvimos hablando con Juan el día de ayer.
+Te voy dando contexto para que cuando Juan entre ya tengamos un norte claro.
+¿Listo?
+Dale.
+¿Qué es lo que sucede?
+Ya con todo lo que se ha venido experimentando, lo que tú hiciste, Diana hizo, lo que Juan
+ha hecho, queremos ya declarar en algún momento, en un momento cero, que ya no hay más código.
+Sí, o sea, ya nadie va a lanzar más código de manera manual o directa.
+¿Sí?
+Ok.
+Ok.
+Entonces, el tema es que con ese momento cero también nos toca reorganizarnos y pues
+ya nos toca hacer una selección de perfiles que se adapten a esta nueva realidad.
+Una pregunta, Jim.
+Dime.
+Como le decía Juan, pues sin una sola línea de código que ya está desplegada en valor
+para que empiecen aprobar empieza tenemos que Maric Lady Mora actual hoy hoy no está
+lo que empieza el lunes. Entonces la pregunta es, el lunes esas pruebas de Cuba, como eso
+no es código, ¿también deberían ser tenidas en cuenta por IVA? Porque eso fue lo que le
+dejé saber a Mari en su momento, ¿no?
+No, sí.
+Ok, ok.
+Es que mira, ponle cuidado con la idea contigo, que es diseñar el día de hoy un ejercicio
+que nos permita ponerle a la gente. ¿Qué dijo Juan?
+Juan quiere menos soporte, soporte operación y la operación que soporta y infraestructura
+no. Pero todos los desarrolladores que están en integraciones o los que están en mejoras
+de ceiling y toda esa cuenta, detienen todo lo que estén haciendo y la idea es que nosotros
+les pongamos un ejercicio, ¿sí? Y ese ejercicio ellos los van a tener que resolver con base
+en esas capacidades que esperamos, de manera local, con lo que tengan, ¿sí? ¿Cuál es
+la idea? Dime.
+¿Cómo lo podrían resolver si algunos no tienen idea de instalar, por ejemplo, Cloud?
+Ahí es donde vamos a evaluar varias cosas en común. Primero, son desarrolladores. O sea,
+esto está orientado a desarrolladores. ¿Listo?
+Ok. El que es desarrollador sabe instalar, es curioso y sabe investigar.
+¿Gestiona? Ok.
+Sí, gestiona, mueve, sí, hace algo, pregunta, ¿sí? Entonces, la idea es que obviamente
+tampoco tú los vas a mandar al bosque, sino al menos un arma. Y la idea es hacerles un
+ejercicio de capacitación donde es el tú con lo que has investigado, les cuentes cómo
+hiciste el ejercicio, pero ellos lo tienen que desarrollar. O sea, ellos tienen que, o
+sea, mire, yo hoy sale, yo monté, yo hice, tengo. Darles como la herramienta base, pero
+ahí para adelante ellos tendrán que solucionar. La idea es que ellos en esta fase 1 construyan
+algo. O sea, ellos tienen que presentar como un proyecto. Imagínense, tienen que ir a idear un
+proyecto, una necesidad o algo, ya sea para ellos o para un sector comercial, y sin utilizar nada de
+código directamente, sino únicamente IA. Eso sí, Hermes sí o sí como intermediario, porque
+ese debe ser Hermes la herramienta intermediaria. Hagan algo. Construyan algo.
+Ok. Algo, algo diferente a Cilin, ¿cierto? Sí, algo diferente a Cilin. Listo.
+La idea es que nosotros les demos las indicaciones de ese algo. No, es que el algo debe tener
+unas restricciones de, tiene que ser un backend, un frontend, tiene que tener una base de datos
+Postgres o Mongo, componentes de web service, integración. Listo.
+Y ellos van a tener que ir, nosotros les vamos a dar unos puntos de control. Hay unos temas de la
+frecuencia.
+Sí, o sea, digamos que la frecuencia es la primera, o sea, la primera fase que es la prueba, la idea es darles como una
+semana, no sé, o... Sí, una semana, o no sé, tres, cuatro días, cuatro días y un día de evaluación, ¿sí? Una semana. Para que ellos investiguen, se formen, o sea, la idea es también armarles una ruta de aprendizaje para que la vayan aplicando. En eso, si quieres, yo también te puedo ayudar,
+creo que estamos poniendo en manos de estas rutas de aprendizaje, ¿sí? Entonces, decirles, miren, miren este cursito, miren estas herramientas, también lo que tú hayas investigado, también se los ponemos ahí, para que ellos no se sientan solos, sino que, miren, esas son las herramientas que se estamos sugiriendo, pero no se amarren a ellas.
+Perfecto. Ok. Y ellos tendrán que tener su código en Gitla, o en un GitHub público, o donde quieran, por eso lo queremos hacer así, para no restringir tanta vayan.
+Entendido. ¿Y cuánto tendrían de plazo?
+Cuatro días.
+Ok.
+Listo.
+Cuatro días, en el quinto tenemos que empezar a evaluar, y la idea es hacer una especie de cata por grupos.
+Toca mirar de las personas que se suban.
+Le digo es que todos los de desarrollo se están metidos ahí.
+Ok.
+Me preocupa los de soporte, porque los de soporte necesitan también estar disponibles a atender la operación.
+Claro.
+Pero tampoco quiero excluirlos, o tal vez con ellos nos toque hacer otro grupo después, no sé.
+Cuarta, sí, pensaría.
+¿Y cómo controlas esos cuatro días? Es decir, apenas envía un correo, o cómo se habla lo que...
+No. Entonces, ¿te diste cuenta que yo te dije que íbamos a usar Hermes?
+Sí, sí.
+Listo.
+Eso quiere decir que ellos van a tener que interactuar con Hermes y a través de Hermes llegar a los diferentes LLMs que están haciendo la generación, consulta y demás.
+La idea es que ellos, a través de ese Hermes, durante esos cuatro días, no hagan consultas fuera de control, porque lo que se les va a pedir al final es que nos compartan el contexto de Hermes, un resumen contextual de su Hermes, como parte del soporte y entregable de todo lo que hicieron.
+Ok.
+¿En un MD o algo así o qué?
+¿En MD o algo así?
+Un MD, sí, señor. Y eso nos va a dar el contexto al Hermes global de evaluación.
+Ya.
+No, ya.
+Vale.
+¿Ya me la cogiste?
+Sí, sí, entendido.
+Entonces, la pregunta es, ¿de aquí a cuándo les presento ese ejercicio? ¿A ti o a todos?
+No, ya. No, pues conmigo y con Juan. Pues conmigo, tranquilo, no hay problema.
+Ok.
+Pero, bueno, tú conoces a Juan y Juan quiere que lancemos eso desde el lunes.
+Listo.
+Bueno.
+Entonces, no, me pongo ahorita pasado el mediodía en eso.
+Bueno, estoy terminando aquí un último detalle del despliegue a Cuba y empiezo con eso.
+Esperaría que antes de ir. A ver, yo estoy huy hasta las cuatro y media. Esperaría que antes de eso pueda tener.
+Y mandemos cubas, mandemos cubas todo. Ahí es algo importante. O sea, mandemos a todos.
+O sea, que abarque. Ahí no te entendí porque no me dijiste que era para el trabajo.
+No, sí. Sí, pero los cubas, ¿qué van a hacer? No. O sea, es como hacer dos casos de uso. El de pruebas, el de, perdón, el de desarrolladores y algo pensado en pruebas.
+O sea, a partir de lo que hagan esos desarrolladores eventualmente que Cuba también se, o sea, que pruebe ese.
+Ok.
+Pues no sé si probar eso o les damos otro ejercicio con algún código base.
+Yo pensaría que para que no pierdan el tiempo, porque entonces estaríamos hablando que tienen que esperar a que termine el ejercicio.
+Los desarrolladores que hagan uno.
+Eso.
+Basado en ese ejercicio base que les presenté, que entralicen, que simulen pruebas, pues.
+Eso.
+Ok, ok.
+Pues para no excluirlos.
+Sí, sí, sí, para no crear allí la dependencia.
+Ok.
+Hay los únicos que yo personalmente no veo ahorita que participen, cloud, infraestructura y eso, porque ellos, es un abordaje diferente.
+Ok, claro.
+Yo me enfocaría netamente en lo que es la capacidad de desarrollo y la capacidad de pruebas.
+Perfecto.
+No hay problema.
+No, y eso sería.
+Listo, listo.
+Ahora miremos.
+Está que tú sugieras.
+¿Yo qué sugiero?
+Bueno, y más que sugerir lo que quiere Juan.
+Hermes.
+Sí, Hermes no es negociador.
+Listo.
+Hermes no es negociador.
+Tal vez podemos, bueno, es que realmente lleva el contexto.
+Con el Open, bueno, ellos sí les va a tocar ahí con, que conecten a su Open, a su, o a un modelo, no sé, ellos ya les toca mirar y explorar.
+Eso, eso te iba a preguntar porque.
+Porque eso cobra.
+Exacto, exacto.
+¿Qué tal que se queden cortos por créditos o algo así?
+Entonces no alcancé a terminar porque no tenía créditos en la capa gratuita.
+A veces, venga, pero es que para mí eso es parte de la prueba.
+Si a mí me dice, venga, yo estoy en tal fecha, pues, por ahí yo sé que Juan adquirió un Open ID corporativo o algo más grande.
+Las personas que nos pregunten, y nos preguntan con oportunidad, hasta les gestionamos que se conecten ahí.
+Ya.
+Pero los que nos preguntan en el último día, bueno, pues ya tarde.
+Entiendo.
+Sí, o sea, la idea es que no solamente se va a evaluar su capacidad de adaptación, sino también en poder, que ellos entiendan en el ecosistema que se están moviendo,
+que deben prever y alzar las manos a tiempo para saber si están presentes.
+Entender.
+Porque de aquí también se toman decisiones a futuro muy corto tiempo.
+¿Quiénes van a ir para nuestro nuevo modelo operativo?
+Sí, sí.
+¿Quiénes no continúan?
+Porque...
+Si nos...
+Necesitamos detectar el talento que se adapta.
+Y yo sé que acá hay buen talento.
+Sin duda.
+Listo, listo.
+No hay problema.
+Porque para el desarrollador va a ser torturoso el cambio, ¿no?
+Bastante.
+Mucho.
+Esta vaina va a cambiar mucho el modelo de pensamiento y para el desarrollador de a pie no...
+Se lo digo desde mí, desde mí, Javier.
+Que para mí también ha sido un golpe conceptual brutal porque es como yo que he hecho en mis últimos 16 años.
+No, pues claro.
+A mí también me pasó lo mismo los últimos 23 que yo oyo.
+Ese paradigma mental es bastante agresivo.
+Claro, o sea...
+Pero sí.
+Está ahí en el cambio mental.
+El switcheo mental.
+Sí, pues.
+Hay cosas que yo debato todavía, pero son más críticas y de gobernanza que de sobrecapacidad.
+Esas son las críticas que tengo, pero ya está a nivel ético.
+Ok.
+Y de gobernanza a nivel de países y demás.
+O sea, el desarrollo de la vida.
+O sea, cómo se debe controlar a nivel país.
+¿Algo más como legislativo o qué?
+Sí.
+Ya.
+Claro, porque una cosa es que vienen muchos matices que tienen que transformarse en educación, la forma de empleabilidad.
+O sea, es como una revolución industrial.
+Si te acuerdas en la revolución industrial en Francia, cuando habían muchas personitas trabajando, haciendo algo y que llegaron las máquinas de vapor a reemplazarlos.
+Sí.
+Sí.
+Si hubieron huelgas, manifestaciones y otras cosas detrás de toda esa transformación, porque eran personas las que estaban y familias que se estaban viendo desplazadas por la máquina.
+Así es.
+Aquí va a pasar lo mismo.
+Sí, se va a repetir.
+Y es que van a haber muchas personas que van a ser desplazadas y sus posiciones van a ser ocupadas por agentes.
+Así es.
+¿Sí?
+Así es.
+Entonces, eso va a traer otro problema y otra nueva revolución en búsqueda de otros nuevos cuidados laborales.
+O sea, eso va a reformar todo el mundo.
+Sí, ya.
+En la realidad.
+Pero ya esos son más temas que aquí en mi mente que se me ocurre un montón de vaina.
+Claro.
+Y bueno, este ejercicio, ¿dónde lo montamos o qué tienes pensado?
+Pues yo estaba pensando, pues primero yo lo estaba pensando, era por Google Drive, ¿sí?
+Ajá.
+Ahí por una, por un chat, ahí por Google, en el Drive, inventarnos como un archivito, un PDF o algo compartido, ¿sí?
+Y lo compartimos a todos ahí desde eso.
+El próximo lunes ya citamos un espacio donde estén todas las personas, tanto Juan como yo hacemos como, y pues ahí hacemos la apertura y tú ya tomas el control.
+Y damos clara la expectativa que queremos prepararlos para el futuro, ¿sí?
+Ahora, viene el segundo, de ahí vamos a tener que sacar métricas y un montón de cosas y por eso es importante que usen Hermes.
+Porque Hermes es el que nos va a ayudar a saber qué tanto hicieron, qué tanto interactuaron, qué tanto mejoraron, ¿sí?
+Ok, bueno, y otra pregunta que me surge ese, el lunes estaba supuestamente para arrancar pruebas con esto de pagos manuales que acabé de liberarlo, si Maris Lady Mora...
+Pues que coja ese, que coja ese software que tú hiciste con base en eso haga el ejercicio.
+Ah, ok. Una pequeña excepción para ella.
+Ajá.
+Ok, listo.
+Sí, porque ya viene un ejercicio hecho, entonces que con base en ese ejercicio que tú hiciste, pues que ya le dé continuidad.
+Listo, perfecto.
+Me parece.
+Sí, sí, sí. Totalmente de acuerdo.
+Para que no se detenga eso, porque la expectativa, la entendía Juan, es que eso llegue a producción finalmente, ¿no?
+Ajá.
+Entonces, pues nada, eso sería.
+Nada, me queda claro. ¿Algo más, Javier?
+No, no, para nada, si estaríamos alineados con el ejercicio, si quieres ahí le vas moviendo en el transcurso del día y no sé si lo vemos hoy, o tú estás hasta las 3, o hasta las 4, no me acuerdo.
+Sí, 4 y media, déjame, yo pasado el mediodía, almuerzo y demás, me pongo en esto.
+Sí, no he terminado, pero sí al menos como que ya tengas como el mocapcito o algo, o la base.
+Ok, ok. No hay problema.
+Eso, eso. Y ya miramos cómo hacemos el ejercicio de despliegue de lunes.
+Listo, cuenta con ello.
+Listo, pues.
+Bueno.
+Bueno, Diego, eso era.
+Bueno, muchas gracias.
+Bueno, que estés bien.
+Chao.
+Bueno, feliz día.
