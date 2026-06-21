@@ -31,6 +31,16 @@ git-crypt unlock   # uses your local GPG private key automatically
 
 The `*interna*` files will be transparently decrypted from that point forward.
 
+### 4. If cloning for the first time (instead of pulling)
+
+```bash
+git clone git@github.com:diegotrujillo-jikko/reto-ai-first-fase1.git
+cd reto-ai-first-fase1
+git-crypt unlock
+```
+
+Install git-crypt first if needed: `brew install git-crypt`
+
 ---
 
 ## Granting access to a new person (repo owner only)
