@@ -1,1 +1,2 @@
 docs/*interna* filter=git-crypt diff=git-crypt
+docs/input_* filter=git-crypt diff=git-crypt
