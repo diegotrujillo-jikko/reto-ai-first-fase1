@@ -19,11 +19,25 @@ This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation 
 
 ### Two tracks in Week 4
 
-**Track DEV** — build an end-to-end product (backend + frontend + DB + integration) in 4 days, free idea, no manual code, via Hermes.
+**Track DEV** — build an end-to-end product (backend + frontend + DB + integration) in 4 days, via Hermes. Free commercial use case — any domain except SILIN. No manual code.
 
 **Track QA** — design and execute a full test strategy on `mini-tienda-base` (the SUT in this repo) in 4 days, no manual scripts, via Hermes. Goal is NOT to modify the app — test it.
 
 Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday.
+
+## Track DEV — Deliverables
+
+| File | Purpose |
+|------|---------|
+| `HERMES_CONTEXT.md` | Process log: scope, tooling, AI usage, decisions, blockers |
+| Working app | Backend + frontend + DB + at least one external integration, runnable locally |
+| README | How to run, architecture overview, use case description |
+
+The product idea is free — any commercial domain except SILIN. Evaluated on: AI-first workflow adherence, product coherence, and working demo.
+
+## Track QA — SUT Reference
+
+> Everything below applies to the QA track. The SUT (`mini-tienda-base`) is the system to test, not to modify.
 
 ## Running the SUT (System Under Test)
 
@@ -99,7 +113,7 @@ Tests must cover all these dimensions:
 
 Recommended tools: **Playwright** for E2E/UI, **pytest + httpx** for API.
 
-## Required Deliverable Files
+## Required Deliverable Files (Track QA)
 
 | File | Purpose |
 |------|---------|
