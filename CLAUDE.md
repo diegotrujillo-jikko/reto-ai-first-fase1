@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Context
 
-This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation course followed by the Reto Fase 1. Full program details in `programa-ai-first-fase1.md` (+ `.pdf`).
+This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation course followed by the Reto Fase 1. Full program details in `1-programa-ai-first-fase1.pdf`. Reto briefs: `2a-reto-ai-first-fase1-brief.pdf` (DEV) and `2b-reto-ai-first-fase1-qa-brief.pdf` (QA).
 
 ### Program structure
 
