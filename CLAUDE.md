@@ -19,9 +19,9 @@ This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation 
 
 ### Two tracks in Week 4
 
-**Track DEV** — build an end-to-end product (backend + frontend + DB + integration) in 4 days, via Hermes. Free commercial use case — any domain except SILIN. No manual code.
+**Track DEV** — build an end-to-end product (backend + frontend + DB + integration) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). Free commercial use case — any domain except SILIN. No manual code.
 
-**Track QA** — design and execute a full test strategy on `mini-tienda-base` (the SUT in this repo) in 4 days, no manual scripts, via Hermes. Goal is NOT to modify the app — test it.
+**Track QA** — design and execute a full test strategy on `mini-tienda-base` (the SUT in this repo) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). No manual scripts. Goal is NOT to modify the app — test it.
 
 Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday.
 
