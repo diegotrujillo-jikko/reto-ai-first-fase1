@@ -23,7 +23,7 @@ This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation 
 
 **Track QA** — design and execute a full test strategy on `mini-tienda-base` (the SUT in this repo) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). No manual scripts. Goal is NOT to modify the app — test it.
 
-Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday.
+Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday of the reto week.
 
 ## Track DEV — Deliverables
 

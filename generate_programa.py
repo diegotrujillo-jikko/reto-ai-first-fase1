@@ -295,7 +295,7 @@ def build():
              "Repo final + HERMES_CONTEXT.md",
              "Repo final + HERMES_CONTEXT.md"],
             ["Viernes PM",
-             "Demo 5–7 min + cata por grupos",
+             "Demo 5–7 min (viernes de la semana del reto) + cata por grupos",
              "Demo 5–7 min + cata por grupos"],
         ],
         colWidths=[2.5 * cm, (W - 2.5 * cm) / 2, (W - 2.5 * cm) / 2],

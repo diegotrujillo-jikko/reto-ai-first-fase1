@@ -15,7 +15,7 @@ Este repositorio contiene el **Reto AI-First · Fase 1**, que comprende dos trac
 
 ## Qué es este reto
 
-Ambos tracks tienen 4 días de ejecución y entregan: repo + `HERMES_CONTEXT.md` + demo de 5–7 min el viernes.
+Ambos tracks tienen 4 días de ejecución y entregan: repo + `HERMES_CONTEXT.md` + demo de 5–7 min el viernes de la semana del reto.
 
 ### Track DEV
 
