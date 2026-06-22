@@ -275,7 +275,7 @@ def build():
             ["Reporte de defectos",
              "Hallazgos con severidad, pasos de reproducción y evidencia"],
         ],
-        colWidths=[4.5 * cm, W - 4.5 * cm],
+        colWidths=[5.5 * cm, W - 5.5 * cm],
     )
     tbl_qa.setStyle(tbl_style())
     story += [tbl_qa, sp(0.2), h3("Reglas:")]
@@ -290,23 +290,31 @@ def build():
 
     # ── Cronograma ───────────────────────────────────────────────────────────
     story += [PageBreak(), h1("Cronograma — Semana 4"), sp(0.2)]
+    tc_hdr = ParagraphStyle("tc_hdr", fontName="DejaVu-Bold", fontSize=9,
+                            textColor=WHITE, leading=13)
+    tc_body = ParagraphStyle("tc_body", fontName="DejaVu", fontSize=8.5, leading=13,
+                             alignment=TA_LEFT)
+    def tc(text, hdr=False):
+        return Paragraph(text, tc_hdr if hdr else tc_body)
+    dia_w = 2.2 * cm
+    col_w = (W - dia_w) / 2
     tbl_cron = Table(
         [
-            ["Día", "DEV", "QA"],
-            ["Lunes",
-             "/init → CLAUDE.md → primera spec → inicio de construcción",
-             "/init → plan de pruebas → setup Playwright / pytest"],
-            ["Martes–Jueves",
-             "Backend + Frontend + DB + Integración · punto de control diario (3 líneas vía Hermes)",
-             "E2E + API + datos + escenario PRICING_FAIL=1 · punto de control diario"],
-            ["Viernes AM",
-             "Repo final + HERMES_CONTEXT.md",
-             "Repo final + HERMES_CONTEXT.md"],
-            ["Viernes PM",
-             "Demo 5–7 min (viernes de la semana del reto) + cata por grupos",
-             "Demo 5–7 min + cata por grupos"],
+            [tc("Día", hdr=True), tc("DEV", hdr=True), tc("QA", hdr=True)],
+            [tc("Lunes"),
+             tc("/init → CLAUDE.md → primera spec → inicio de construcción"),
+             tc("/init → plan de pruebas → setup Playwright / pytest")],
+            [tc("Martes–\nJueves"),
+             tc("Backend + Frontend + DB + Integración · punto de control diario (3 líneas vía Hermes)"),
+             tc("E2E + API + datos + escenario PRICING_FAIL=1 · punto de control diario")],
+            [tc("Viernes AM"),
+             tc("Repo final + HERMES_CONTEXT.md"),
+             tc("Repo final + HERMES_CONTEXT.md")],
+            [tc("Viernes PM"),
+             tc("Demo 5–7 min (viernes de la semana del reto) + cata por grupos"),
+             tc("Demo 5–7 min (viernes de la semana del reto) + cata por grupos")],
         ],
-        colWidths=[2.5 * cm, (W - 2.5 * cm) / 2, (W - 2.5 * cm) / 2],
+        colWidths=[dia_w, col_w, col_w],
     )
     tbl_cron.setStyle(tbl_style())
     story += [tbl_cron, sp(0.3)]
