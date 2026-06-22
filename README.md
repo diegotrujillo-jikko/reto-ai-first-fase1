@@ -1,6 +1,9 @@
 # Reto AI-First Fase 1
 
-Este repositorio contiene el proyecto del **Reto AI-First · Fase 1**, centrado en la evaluación de una **mini tienda full-stack** para pruebas y QA. El objetivo principal es construir una estrategia de pruebas completa que cubra la aplicación base, sus APIs, la integración de precios/impuestos y la experiencia de usuario final.
+Este repositorio contiene el **Reto AI-First · Fase 1**, que comprende dos tracks paralelos:
+
+- **Track DEV** — construir un producto full-stack (backend + frontend + DB + integración) sobre cualquier caso de uso comercial distinto a SILIN, sin escribir código manualmente, usando Hermes como agente principal.
+- **Track QA** — diseñar y ejecutar una estrategia de pruebas completa sobre la **mini tienda full-stack** incluida en este repo, sin modificar la aplicación, usando Hermes como agente principal.
 
 ## Contenido del repositorio
 
@@ -12,7 +15,19 @@ Este repositorio contiene el proyecto del **Reto AI-First · Fase 1**, centrado 
 
 ## Qué es este reto
 
-En este reto, el foco no es modificar la aplicación existente, sino **probarla**. Se espera diseñar y ejecutar una estrategia de pruebas que cubra:
+Ambos tracks tienen 4 días de ejecución y entregan: repo + `HERMES_CONTEXT.md` + demo de 5–7 min el viernes.
+
+### Track DEV
+
+Construir un producto full-stack end-to-end sobre **cualquier caso de uso comercial** (distinto a SILIN), sin escribir código manualmente. Se espera:
+
+- Backend + frontend + base de datos + integración externa.
+- 100% generado mediante Hermes (agente AI).
+- Idea libre; el criterio es coherencia y funcionamiento real del producto.
+
+### Track QA
+
+El foco es **probar** la mini tienda incluida en este repo, no modificarla. Se espera diseñar y ejecutar una estrategia de pruebas que cubra:
 
 - Casos funcionales del frontend y backend.
 - Contratos de API y validación de respuestas.
