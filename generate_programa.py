@@ -93,7 +93,7 @@ def build():
         sp(0.5),
         Paragraph("Programa AI-First · Fase 1", S["title"]),
         Paragraph("Jikkosoft — Preparación y Reto", S["subtitle"]),
-        Paragraph("Preparado por Diego Trujillo", S["subtitle"]),
+        Paragraph("Preparado por Diego Trujillo · diego.trujillo@jikkosoft.com", S["subtitle"]),
         sp(0.5),
         hr(),
         sp(0.3),
@@ -360,7 +360,7 @@ def build():
           "levanta la mano a tiempo — no el último día. Anticiparte y comunicar a tiempo "
           "es una de las capacidades que se están evaluando."),
         sp(0.2),
-        note("Dudas durante el programa: canalízalas a Diego Trujillo por Google Chat."),
+        note("Dudas durante el programa: canalízalas a Diego Trujillo — diego.trujillo@jikkosoft.com o Google Chat."),
     ]
 
     out = "/Users/dorothy/Stuff/Jikkosoft/Code/ai/lab/reto-ai-first-fase1/1-programa-ai-first-fase1.pdf"
