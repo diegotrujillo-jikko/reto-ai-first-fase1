@@ -23,33 +23,32 @@ WHITE = colors.white
 GREY_ROW = colors.HexColor("#EEEEEE")
 
 def styles():
-    base = dict(fontName="DejaVu", fontSize=9.5, leading=14, alignment=TA_JUSTIFY,
-                spaceAfter=4)
+    base = dict(fontName="DejaVu", fontSize=9.5, leading=16, alignment=TA_JUSTIFY,
+                spaceAfter=6)
     return {
         "title": ParagraphStyle("title", fontName="DejaVu-Bold", fontSize=22,
-                                textColor=TEAL, alignment=TA_CENTER, spaceAfter=4),
+                                textColor=TEAL, alignment=TA_CENTER, spaceAfter=14),
         "subtitle": ParagraphStyle("subtitle", fontName="DejaVu", fontSize=11,
                                    textColor=colors.HexColor("#444444"),
-                                   alignment=TA_CENTER, spaceAfter=2),
+                                   alignment=TA_CENTER, spaceAfter=6),
+        # h1 inner: white bold text inside the teal Table cell
         "h1": ParagraphStyle("h1", fontName="DejaVu-Bold", fontSize=14,
-                              textColor=WHITE, backColor=TEAL, spaceBefore=14,
-                              spaceAfter=6, leftIndent=-6, rightIndent=-6,
-                              borderPad=4),
+                              textColor=WHITE, alignment=TA_LEFT, leading=20),
         "h2": ParagraphStyle("h2", fontName="DejaVu-Bold", fontSize=11,
-                              textColor=TEAL, spaceBefore=10, spaceAfter=4),
+                              textColor=TEAL, spaceBefore=16, spaceAfter=6),
         "h3": ParagraphStyle("h3", fontName="DejaVu-Bold", fontSize=9.5,
                               textColor=colors.HexColor("#333333"),
-                              spaceBefore=8, spaceAfter=3),
+                              spaceBefore=12, spaceAfter=5),
         "body": ParagraphStyle("body", **base),
-        "bullet": ParagraphStyle("bullet", **{**base, "leftIndent": 12,
-                                              "bulletIndent": 4, "spaceAfter": 3}),
+        "bullet": ParagraphStyle("bullet", **{**base, "leftIndent": 14,
+                                              "bulletIndent": 4, "spaceAfter": 5}),
         "note": ParagraphStyle("note", fontName="DejaVu-Italic", fontSize=8.5,
                                textColor=colors.HexColor("#555555"),
-                               alignment=TA_JUSTIFY, spaceAfter=4),
+                               alignment=TA_JUSTIFY, spaceAfter=6, leading=13),
         "box": ParagraphStyle("box", fontName="DejaVu", fontSize=9.5,
                               backColor=TEAL_LIGHT, borderColor=TEAL, borderWidth=1,
-                              borderPad=6, leading=14, alignment=TA_JUSTIFY,
-                              spaceAfter=6),
+                              borderPad=10, leading=16, alignment=TA_JUSTIFY,
+                              spaceAfter=10),
     }
 
 LLM_NOTE = ("Hermes como agente principal y uno o varios LLMs de su preferencia "
@@ -66,23 +65,32 @@ def tbl_style(header_bg=TEAL, alt=GREY_ROW):
         ("ROWBACKGROUNDS", (0, 1), (-1, -1), [WHITE, alt]),
         ("GRID", (0, 0), (-1, -1), 0.4, colors.HexColor("#BBBBBB")),
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        ("TOPPADDING", (0, 0), (-1, -1), 5),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
-        ("LEFTPADDING", (0, 0), (-1, -1), 6),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+        ("TOPPADDING", (0, 0), (-1, -1), 7),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+        ("LEFTPADDING", (0, 0), (-1, -1), 8),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 8),
     ])
 
 def build():
     S = styles()
     W = A4[0] - 4 * cm
 
-    def h1(text): return Paragraph(f"&nbsp;&nbsp;{text}", S["h1"])
+    def h1(text):
+        t = Table([[Paragraph(text, S["h1"])]], colWidths=[W])
+        t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, -1), TEAL),
+            ("TOPPADDING", (0, 0), (-1, -1), 10),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 10),
+            ("LEFTPADDING", (0, 0), (-1, -1), 12),
+            ("RIGHTPADDING", (0, 0), (-1, -1), 12),
+        ]))
+        return t
     def h2(text): return Paragraph(text, S["h2"])
     def h3(text): return Paragraph(text, S["h3"])
     def p(text):  return Paragraph(text, S["body"])
     def b(text):  return Paragraph(f"• {text}", S["bullet"])
     def note(text): return Paragraph(text, S["note"])
-    def sp(h=0.3): return Spacer(1, h * cm)
+    def sp(h=0.4): return Spacer(1, h * cm)
     def hr(): return HRFlowable(width="100%", thickness=0.5,
                                 color=colors.HexColor("#CCCCCC"), spaceAfter=4)
 
@@ -90,19 +98,19 @@ def build():
 
     # ── Title block ──────────────────────────────────────────────────────────
     story += [
-        sp(0.5),
+        sp(1.0),
         Paragraph("Programa AI-First · Fase 1", S["title"]),
         Paragraph("Jikkosoft — Preparación y Reto", S["subtitle"]),
         Paragraph("Preparado por Diego Trujillo · diego.trujillo@jikkosoft.com", S["subtitle"]),
-        sp(0.5),
+        sp(0.8),
         hr(),
-        sp(0.3),
+        sp(0.8),
     ]
 
     # ── Principio fundacional ────────────────────────────────────────────────
     story += [
         h1("Principio fundacional"),
-        sp(0.2),
+        sp(0.4),
         Paragraph(
             "Todo proyecto AI empieza con <b>/init</b>. "
             "Antes de escribir una sola spec, antes de tocar código, antes de todo: "
@@ -111,11 +119,11 @@ def build():
             "trabaja sin contexto y los resultados son impredecibles.",
             S["box"],
         ),
-        sp(0.2),
+        sp(0.6),
     ]
 
     # ── Estructura general ───────────────────────────────────────────────────
-    story += [h1("Estructura general"), sp(0.2)]
+    story += [h1("Estructura general"), sp(0.4)]
     tbl_struct = Table(
         [
             ["Semana", "Tema", "Workshops"],
@@ -124,7 +132,7 @@ def build():
             ["3", "Plan & Loop · MCP Servers · Subagentes · Git", "2"],
             ["4", "Reto Fase 1 (DEV + QA en paralelo)", "—"],
         ],
-        colWidths=[1.5 * cm, W - 3.5 * cm, 2 * cm],
+        colWidths=[1.8 * cm, W - 4.8 * cm, 3 * cm],
     )
     tbl_struct.setStyle(tbl_style())
     story += [tbl_struct, sp(0.2),
