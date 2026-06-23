@@ -151,6 +151,9 @@ def build():
             [_rc("Codex CLI"),
              _rl("Instalar desde github.com/openai/codex",
                  "https://github.com/openai/codex")],
+            [_rc("Claude Code (Claude CLI)"),
+             _rl("claude.ai/code — descarga el instalador o sigue la guía de la plataforma",
+                 "https://claude.ai/code")],
             [_rc("Hermes agent (NousResearch)"),
              _rl("github.com/NousResearch/hermes-agent — install.sh | bash"
                  " · verificar: hermes --help && hermes doctor",
@@ -158,9 +161,6 @@ def build():
             [_rc("Git"),
              _rl("git-scm.com · macOS/Linux: preinstalado · Windows: descargar instalador",
                  "https://git-scm.com")],
-            [_rc("GPG key"),
-             _rc("gpg --full-generate-key (RSA 4096, sin expiración, email de trabajo)"
-                 " — requerido para acceso git-crypt a archivos internos del repo")],
             [_rc("API key LLM"),
              _rc("Contactar a Juan David para obtener acceso a una API")],
             [_rc("Cuenta GitHub o GitLab"),
@@ -202,7 +202,7 @@ def build():
             [Paragraph("Etapa", _sh), Paragraph("Descripción", _sh),
              Paragraph("Fechas", _sh)],
             [Paragraph("1 — Capacitación", _sb),
-             Paragraph("Codex CLI · Spec Engineering · CLAUDE.md · "
+             Paragraph("Claude CLI · Spec Engineering · CLAUDE.md · "
                        "Plan &amp; Loop · MCP Servers · Subagentes · Git", _sb),
              Paragraph("24–25 jun", _sb)],
             [Paragraph("2 — Adaptabilidad", _sb),
@@ -221,8 +221,8 @@ def build():
               note("Evaluación: viernes 7 de julio · demo de 5–7 min por track."),
               sp(0.5)]
 
-    # ── Semana 1 ─────────────────────────────────────────────────────────────
-    story += [PageBreak(), h1("Semana 1 — Codex CLI"), sp(0.2),
+    # ── Etapa 1 ──────────────────────────────────────────────────────────────
+    story += [PageBreak(), h1("Etapa 1 — Capacitación · 24–25 jun"), sp(0.2),
               h2("Workshop 1 — Apertura + Codex CLI"),
               h3("Lunes"),
               b("Apertura del programa: contexto del “momento cero” y el nuevo modelo operativo AI-first."),
@@ -300,8 +300,8 @@ def build():
                    "(3 líneas de avance + bloqueos vía Hermes)."),
               sp(0.3)]
 
-    # ── Semana 2 ─────────────────────────────────────────────────────────────
-    story += [PageBreak(), h1("Semana 2 — CLAUDE.md"), sp(0.2),
+    # ── Semana 2 (dentro de Etapa 1) ─────────────────────────────────────────
+    story += [sp(0.4),
               h2("Workshop 3 — Anatomía del CLAUDE.md"),
               h3("Lunes"),
               b("El /init genera el esqueleto; tú lo conviertes en un contrato AI preciso."),
@@ -320,10 +320,8 @@ def build():
               b("Revisión cruzada en pares."),
               sp(0.3)]
 
-    # ── Semana 3 ─────────────────────────────────────────────────────────────
-    story += [PageBreak(),
-              h1("Semana 3 — Plan & Loop · MCP Servers · Subagentes · Git"),
-              sp(0.2),
+    # ── Semana 3 (dentro de Etapa 1) ─────────────────────────────────────────
+    story += [sp(0.4),
               h2("Workshop 5 — Plan Mode + Loop + Skills"),
               h3("Lunes"),
               b("/plan antes de cualquier tarea compleja: cómo estructurar el trabajo antes "
@@ -360,8 +358,8 @@ def build():
               b("Cierre del curso y lanzamiento oficial de los Retos Fase 1."),
               sp(0.3)]
 
-    # ── Semana 4 ─────────────────────────────────────────────────────────────
-    story += [PageBreak(), h1("Semana 4 — Reto Fase 1"), sp(0.2),
+    # ── Etapa 2 ──────────────────────────────────────────────────────────────
+    story += [PageBreak(), h1("Etapa 2 — Reto Fase 1 · 26 jun – 6 jul"), sp(0.2),
               h2("Dos tracks en paralelo"), sp(0.1)]
 
     # Track DEV
@@ -430,7 +428,7 @@ def build():
     story.append(sp(0.3))
 
     # ── Cronograma ───────────────────────────────────────────────────────────
-    story += [PageBreak(), h1("Cronograma — Semana 4"), sp(0.2)]
+    story += [PageBreak(), h1("Cronograma — Etapa 2 · Reto Fase 1"), sp(0.2)]
     tc_hdr = ParagraphStyle("tc_hdr", fontName="DejaVu-Bold", fontSize=9,
                             textColor=WHITE, leading=13)
     tc_body = ParagraphStyle("tc_body", fontName="DejaVu", fontSize=8.5, leading=13,
