@@ -218,13 +218,12 @@ def build():
     )
     tbl_struct.setStyle(tbl_style())
     story += [tbl_struct, sp(0.2),
-              note("Evaluación: viernes 7 de julio · demo de 5–7 min por track."),
+              note("Evaluación: martes 7 de julio · demo de 5–7 min por track."),
               sp(0.5)]
 
     # ── Etapa 1 ──────────────────────────────────────────────────────────────
     story += [PageBreak(), h1("Etapa 1 — Capacitación · 24–25 jun"), sp(0.2),
-              h2("Workshop 1 — Apertura + Codex CLI"),
-              h3("Lunes"),
+              h2("Workshop 1 — Apertura + Codex CLI · Miércoles 24 jun"),
               b("Apertura del programa: contexto del “momento cero” y el nuevo modelo operativo AI-first."),
               b("Instalación y configuración: Claude Code + modelo conectado a Hermes."),
               b("El ritual /init en vivo sobre un repo vacío: qué genera, por qué importa."),
@@ -255,8 +254,7 @@ def build():
     )
     tbl_hermes.setStyle(tbl_style(header_bg=colors.HexColor("#00838F"), alt=TEAL_LIGHT))
     story += [sp(0.1), tbl_hermes, sp(0.3),
-              h2("Workshop 2 — Spec Engineering"),
-              h3("Jueves o viernes"),
+              h2("Workshop 2 — Spec Engineering · Miércoles 24 jun, tarde"),
               b("Por qué la calidad de la spec supera la elección del modelo."),
               b("La matriz real: 3 niveles de spec × 7 modelos — caso de estudio extraído del "
                 "experimento interno de Diego (<i>hermes-exploratory</i>)."),
@@ -300,18 +298,14 @@ def build():
                    "(3 líneas de avance + bloqueos vía Hermes)."),
               sp(0.3)]
 
-    # ── Semana 2 (dentro de Etapa 1) ─────────────────────────────────────────
+    # ── Workshop 3 (dentro de Etapa 1) ───────────────────────────────────────
     story += [sp(0.4),
-              h2("Workshop 3 — Anatomía del CLAUDE.md"),
-              h3("Lunes"),
+              h2("Workshop 3 — CLAUDE.md · Jueves 25 jun, mañana"),
               b("El /init genera el esqueleto; tú lo conviertes en un contrato AI preciso."),
               b("Componentes esenciales: authority hierarchy, safe/unsafe zones, naming conventions, "
                 "model selection table."),
               b("Revisión en vivo de un CLAUDE.md real de producción (21 KB, API de SILIN)."),
               b("Diferencia entre un README y un AI operating contract."),
-              sp(0.3),
-              h2("Workshop 4 — CLAUDE.md hands-on"),
-              h3("Jueves o viernes"),
               b("Cada participante toma su repo actual (SILIN / integraciones) y escribe "
                 "su propio CLAUDE.md desde cero."),
               b("Track DEV: orientado a construcción (safe zones para schema, API, FE)."),
@@ -320,10 +314,9 @@ def build():
               b("Revisión cruzada en pares."),
               sp(0.3)]
 
-    # ── Semana 3 (dentro de Etapa 1) ─────────────────────────────────────────
+    # ── Workshop 4 (dentro de Etapa 1) ───────────────────────────────────────
     story += [sp(0.4),
-              h2("Workshop 5 — Plan Mode + Loop + Skills"),
-              h3("Lunes"),
+              h2("Workshop 4 — Plan & Loop + MCP + Subagentes + Git · Jueves 25 jun, tarde"),
               b("/plan antes de cualquier tarea compleja: cómo estructurar el trabajo antes "
                 "de generar código."),
               b("Loop modes para tareas iterativas."),
@@ -343,8 +336,6 @@ def build():
     story += [sp(0.1), tbl5, sp(0.2),
               b("Demostración completa: /init → /plan → build con skills apropiados."),
               sp(0.3),
-              h2("Workshop 6 — MCP Servers + Subagentes + Git + Cierre"),
-              h3("Jueves o viernes"),
               b("MCP Servers: Figma como fuente de diseño leíble por IA · Azure DevOps WI como PRD "
                 "· claude-mem para memoria persistente entre sesiones."),
               b("Subagentes paralelos: el patrón <b>LLM-as-judge</b> — un modelo genera el output, "
@@ -435,23 +426,23 @@ def build():
                              alignment=TA_LEFT)
     def tc(text, hdr=False):
         return Paragraph(text, tc_hdr if hdr else tc_body)
-    dia_w = 2.2 * cm
+    dia_w = 3 * cm
     col_w = (W - dia_w) / 2
     tbl_cron = Table(
         [
             [tc("Día", hdr=True), tc("DEV", hdr=True), tc("QA", hdr=True)],
-            [tc("Lunes"),
+            [tc("Vie 26 jun"),
              tc("/init → CLAUDE.md → primera spec → inicio de construcción"),
              tc("/init → plan de pruebas → setup Playwright / pytest")],
-            [tc("Martes–\nJueves"),
+            [tc("Lun 29 jun –\nVie 3 jul"),
              tc("Backend + Frontend + DB + Integración · punto de control diario (3 líneas vía Hermes)"),
              tc("E2E + API + datos + escenario PRICING_FAIL=1 · punto de control diario")],
-            [tc("Viernes AM"),
-             tc("Repo final + HERMES_CONTEXT.md"),
-             tc("Repo final + HERMES_CONTEXT.md")],
-            [tc("Viernes PM"),
-             tc("Demo 5–7 min (viernes de la semana del reto) + cata por grupos"),
-             tc("Demo 5–7 min (viernes de la semana del reto) + cata por grupos")],
+            [tc("Lun 6 jul"),
+             tc("Repo final + HERMES_CONTEXT.md · entrega antes de medianoche"),
+             tc("Repo final + HERMES_CONTEXT.md · entrega antes de medianoche")],
+            [tc("Mar 7 jul"),
+             tc("Demo 5–7 min + cata por grupos · evaluación final"),
+             tc("Demo 5–7 min + cata por grupos · evaluación final")],
         ],
         colWidths=[dia_w, col_w, col_w],
     )
