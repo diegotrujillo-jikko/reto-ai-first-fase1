@@ -135,36 +135,51 @@ def build():
             "que hace este proceso repetible, trazable y transferible."),
         sp(0.3),
         h2("Requisitos mínimos"),
-        sp(0.1),
+        sp(0.2),
     ]
+    _rh = ParagraphStyle("_rh", fontName="DejaVu-Bold", fontSize=9,
+                         textColor=WHITE, leading=13)
+    _rb = ParagraphStyle("_rb", fontName="DejaVu", fontSize=8.5, leading=14)
+    def _rc(t, hdr=False): return Paragraph(t, _rh if hdr else _rb)
+    def _rl(label, url):
+        return Paragraph(
+            f'<a href="{url}" color="#0066CC"><u>{label}</u></a>', _rb
+        )
     tbl_req = Table(
         [
-            ["Herramienta", "Instalación / Acceso"],
-            ["Claude Code (Claude CLI)",
-             "claude.ai/code — descarga el instalador o sigue la guía de la plataforma"],
-            ["Hermes agent (NousResearch)",
-             "curl -fsSL https://raw.githubusercontent.com/NousResearch/"
-             "hermes-agent/main/scripts/install.sh | bash\n"
-             "Verificar: hermes --help && hermes doctor"],
-            ["Git", "git --version · macOS/Linux: preinstalado · Windows: git-scm.com"],
-            ["GPG key",
-             "gpg --full-generate-key (RSA 4096, sin expiración, email de trabajo) — "
-             "requerido para acceso git-crypt a archivos internos del repo"],
-            ["API key LLM",
-             "Al menos un proveedor: Anthropic (console.anthropic.com) · "
-             "DeepSeek (platform.deepseek.com) · Moonshot/Kimi (platform.moonshot.ai)"],
-            ["Cuenta GitHub o GitLab",
-             "Repo público donde alojar la entrega del reto"],
+            [_rc("Herramienta", hdr=True), _rc("Instalación / Acceso", hdr=True)],
+            [_rc("Codex CLI"),
+             _rl("Instalar desde github.com/openai/codex",
+                 "https://github.com/openai/codex")],
+            [_rc("Hermes agent (NousResearch)"),
+             _rl("github.com/NousResearch/hermes-agent — install.sh | bash"
+                 " · verificar: hermes --help && hermes doctor",
+                 "https://github.com/NousResearch/hermes-agent")],
+            [_rc("Git"),
+             _rl("git-scm.com · macOS/Linux: preinstalado · Windows: descargar instalador",
+                 "https://git-scm.com")],
+            [_rc("GPG key"),
+             _rc("gpg --full-generate-key (RSA 4096, sin expiración, email de trabajo)"
+                 " — requerido para acceso git-crypt a archivos internos del repo")],
+            [_rc("API key LLM"),
+             _rc("Contactar a Juan David para obtener acceso a una API")],
+            [_rc("Cuenta GitHub o GitLab"),
+             Paragraph(
+                 '<a href="https://github.com" color="#0066CC"><u>github.com</u></a>'
+                 ' o '
+                 '<a href="https://gitlab.com" color="#0066CC"><u>gitlab.com</u></a>'
+                 ' — repo público donde alojar la entrega del reto', _rb
+             )],
         ],
         colWidths=[4.5 * cm, W - 4.5 * cm],
     )
     tbl_req.setStyle(tbl_style(header_bg=colors.HexColor("#00838F"), alt=TEAL_LIGHT))
-    story += [tbl_req, sp(0.4)]
+    story += [tbl_req, sp(0.7)]
 
     # ── Principio fundacional ────────────────────────────────────────────────
     story += [
         h1("Principio fundacional"),
-        sp(0.4),
+        sp(0.5),
         Paragraph(
             "Todo proyecto AI empieza con <b>/init</b>. "
             "Antes de escribir una sola spec, antes de tocar código, antes de todo: "
@@ -178,30 +193,37 @@ def build():
 
     # ── Estructura general ───────────────────────────────────────────────────
     story += [h1("Estructura general"), sp(0.4)]
+    _sh = ParagraphStyle("_sh", fontName="DejaVu-Bold", fontSize=9,
+                         textColor=WHITE, leading=13)
+    _sb = ParagraphStyle("_sb", fontName="DejaVu", fontSize=9, leading=14)
+    COL_E = 4 * cm; COL_F = 3 * cm; COL_D = W - COL_E - COL_F
     tbl_struct = Table(
         [
-            ["Etapa", "Descripción", "Fechas"],
-            ["1 — Capacitación",
-             "Claude CLI · Spec Engineering · CLAUDE.md · "
-             "Plan & Loop · MCP Servers · Subagentes · Git",
-             "24–25 jun"],
-            ["2 — Adaptabilidad",
-             "Construcción y entrega del proyecto (Reto Fase 1: DEV + QA en paralelo)",
-             "26 jun – 6 jul"],
-            ["3 — Adaptabilidad\ncon lo actual",
-             "Integración del workflow AI-first con proyectos y contexto existente",
-             "hasta 7 jul"],
+            [Paragraph("Etapa", _sh), Paragraph("Descripción", _sh),
+             Paragraph("Fechas", _sh)],
+            [Paragraph("1 — Capacitación", _sb),
+             Paragraph("Codex CLI · Spec Engineering · CLAUDE.md · "
+                       "Plan &amp; Loop · MCP Servers · Subagentes · Git", _sb),
+             Paragraph("24–25 jun", _sb)],
+            [Paragraph("2 — Adaptabilidad", _sb),
+             Paragraph("Construcción y entrega del proyecto "
+                       "(Reto Fase 1: DEV + QA en paralelo)", _sb),
+             Paragraph("26 jun – 6 jul", _sb)],
+            [Paragraph("3 — Adaptabilidad con lo actual", _sb),
+             Paragraph("Integración del workflow AI-first con proyectos "
+                       "y contexto existente", _sb),
+             Paragraph("hasta 7 jul", _sb)],
         ],
-        colWidths=[3.5 * cm, W - 7 * cm, 3.5 * cm],
+        colWidths=[COL_E, COL_D, COL_F],
     )
     tbl_struct.setStyle(tbl_style())
     story += [tbl_struct, sp(0.2),
               note("Evaluación: viernes 7 de julio · demo de 5–7 min por track."),
-              sp(0.3)]
+              sp(0.5)]
 
     # ── Semana 1 ─────────────────────────────────────────────────────────────
-    story += [PageBreak(), h1("Semana 1 — Claude CLI"), sp(0.2),
-              h2("Workshop 1 — Apertura + Claude CLI"),
+    story += [PageBreak(), h1("Semana 1 — Codex CLI"), sp(0.2),
+              h2("Workshop 1 — Apertura + Codex CLI"),
               h3("Lunes"),
               b("Apertura del programa: contexto del “momento cero” y el nuevo modelo operativo AI-first."),
               b("Instalación y configuración: Claude Code + modelo conectado a Hermes."),
