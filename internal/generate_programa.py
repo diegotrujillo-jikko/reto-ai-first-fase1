@@ -7,8 +7,8 @@ from reportlab.lib.units import cm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
-    HRFlowable, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table,
-    TableStyle,
+    HRFlowable, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate,
+    Spacer, Table, TableStyle,
 )
 
 FONT_DIR = "/Users/dorothy/Library/Fonts"
@@ -49,6 +49,17 @@ def styles():
                               backColor=TEAL_LIGHT, borderColor=TEAL, borderWidth=1,
                               borderPad=10, leading=16, alignment=TA_JUSTIFY,
                               spaceAfter=10),
+        "roi_box": ParagraphStyle("roi_box", fontName="DejaVu-Italic", fontSize=9,
+                                  backColor=colors.HexColor("#FFF8E1"),
+                                  borderColor=colors.HexColor("#F9A825"),
+                                  borderWidth=1, borderPad=8,
+                                  leading=15, alignment=TA_JUSTIFY, spaceAfter=8),
+        "code": ParagraphStyle("code", fontName="DejaVu", fontSize=8.5,
+                               textColor=colors.HexColor("#1A237E"),
+                               backColor=colors.HexColor("#F5F5F5"),
+                               borderColor=colors.HexColor("#BDBDBD"),
+                               borderWidth=0.5, borderPad=6,
+                               leading=14, spaceAfter=4, alignment=TA_LEFT),
     }
 
 LLM_NOTE = ("Hermes como agente principal y uno o varios LLMs de su preferencia "
@@ -90,6 +101,7 @@ def build():
     def p(text):  return Paragraph(text, S["body"])
     def b(text):  return Paragraph(f"• {text}", S["bullet"])
     def note(text): return Paragraph(text, S["note"])
+    def roi(text):  return Paragraph(text, S["roi_box"])
     def sp(h=0.4): return Spacer(1, h * cm)
     def hr(): return HRFlowable(width="100%", thickness=0.5,
                                 color=colors.HexColor("#CCCCCC"), spaceAfter=4)
@@ -119,7 +131,18 @@ def build():
             "trabaja sin contexto y los resultados son impredecibles.",
             S["box"],
         ),
-        sp(0.6),
+        sp(0.4),
+        roi("<b>Por qué Hermes — el argumento del CEO.</b> "
+            "Jikkosoft pasa de escribir código a orquestar contexto. "
+            "La investigación interna (<i>hermes-exploratory</i>, 2026) lo confirma con datos: "
+            "mejorar la spec es <b>3× más efectivo que actualizar el modelo</b> — "
+            "pasar de Spec A (~150 palabras) a Spec B (~480 palabras) produce +26 puntos "
+            "promedio en calidad de output; subir de Haiku a Opus en la misma spec produce "
+            "solo +12 a +24. Una spec mal escrita hace que el modelo más costoso alucine "
+            "convenciones e ignore reglas de integridad. Una spec bien escrita hace que el "
+            "modelo más barato produzca output de producción. Hermes es el canal obligatorio "
+            "que hace este proceso repetible, trazable y transferible."),
+        sp(0.4),
     ]
 
     # ── Estructura general ───────────────────────────────────────────────────
@@ -150,7 +173,29 @@ def build():
               b(f"Hermes como intermediario obligatorio: toda interacción con modelos pasa por aquí. "
                 f"Libertad de elegir uno o varios LLMs para codificar o implementar "
                 f"(ej: Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.)."),
-              sp(0.3),
+              sp(0.2),
+              h3("Referencia de comandos Hermes:")]
+
+    tc_hdr_w1 = ParagraphStyle("tc_hdr_w1", fontName="DejaVu-Bold", fontSize=8.5,
+                                textColor=WHITE, leading=13)
+    tc_body_w1 = ParagraphStyle("tc_body_w1", fontName="DejaVu", fontSize=8.5,
+                                 leading=13, alignment=TA_LEFT)
+    def tcw(t, hdr=False):
+        return Paragraph(t, tc_hdr_w1 if hdr else tc_body_w1)
+    tbl_hermes = Table(
+        [
+            [tcw("Comando", hdr=True), tcw("Uso", hdr=True)],
+            [tcw("hermes setup"), tcw("Configuración inicial — conecta proveedores (Anthropic, DeepSeek, Moonshot)")],
+            [tcw("hermes doctor"), tcw("Diagnóstico de instalación y conectividad")],
+            [tcw("hermes model"), tcw("Selector interactivo de modelo (muestra todos los disponibles)")],
+            [tcw("/model anthropic:claude-sonnet-4-6"), tcw("Cambia el modelo activo dentro del TUI")],
+            [tcw("/new"), tcw("Abre conversación fresca — evita memory bleed entre tareas")],
+            [tcw("hermes config list"), tcw("Lista las claves de config aceptadas por la versión instalada")],
+        ],
+        colWidths=[5.5 * cm, W - 5.5 * cm],
+    )
+    tbl_hermes.setStyle(tbl_style(header_bg=colors.HexColor("#00838F"), alt=TEAL_LIGHT))
+    story += [sp(0.1), tbl_hermes, sp(0.3),
               h2("Workshop 2 — Spec Engineering"),
               h3("Jueves o viernes"),
               b("Por qué la calidad de la spec supera la elección del modelo."),
@@ -160,6 +205,37 @@ def build():
                 "Spec B + Sonnet es el punto de equilibrio costo/calidad."),
               b("Ejercicio práctico: cada participante escribe 3 versiones de spec para algo de "
                 "su contexto y compara outputs."),
+              sp(0.2),
+              h3("Checklist de una spec efectiva (nivel Spec B — punto de equilibrio):")]
+    for item in [
+        "<b>Dominio</b> — qué representa la spec, en 2–3 oraciones.",
+        "<b>Scope</b> — lista explícita de entidades/tablas con columnas clave.",
+        "<b>Tech stack</b> — versión de DB, estrategia de IDs, formato de timestamps.",
+        "<b>Convenciones</b> — naming, columnas de estado (CHECK vs ENUM), tipo de moneda.",
+        "<b>Reglas de integridad</b> — soft delete, ON DELETE, UNIQUE, CHECK constraints.",
+        "<b>Reglas de safe-change</b> — columnas nullable, sin renombrados, índices en FKs.",
+        "<b>Fuera de scope</b> — qué NO generar (evita tablas alucinadas).",
+        "<b>Entregable esperado</b> — formato exacto de output (solo SQL, sin prosa, sin fences).",
+    ]:
+        story.append(b(item))
+
+    tbl_rubric = Table(
+        [
+            ["Categoría", "Máx", "Qué evalúa"],
+            ["Structure", "30", "Tablas requeridas, FKs, sin tablas inventadas"],
+            ["Naming", "15", "snake_case, id/{table}_id, created_at/updated_at"],
+            ["Integrity", "20", "PK/FK, NOT NULL, UNIQUE, soft delete, CASCADE/RESTRICT"],
+            ["Comments", "15", "Tablas y decisiones no obvias documentadas"],
+            ["Query feasibility", "10", "Queries clave soportados, índices en FKs y hot paths"],
+            ["Spec adherence", "10", "Siguió la spec, sin features inventadas"],
+        ],
+        colWidths=[4 * cm, 1.2 * cm, W - 5.2 * cm],
+    )
+    tbl_rubric.setStyle(tbl_style(header_bg=colors.HexColor("#00838F"), alt=TEAL_LIGHT))
+    story += [sp(0.25), h3("Rubric de evaluación de output (0–100):"),
+              sp(0.1), tbl_rubric, sp(0.15),
+              note("Regla práctica: score < 80 → la spec necesita más detalle, no un modelo más caro. "
+                   "Referencia completa: github.com/diegotrujillo-jikko/hermes-exploratory"),
               sp(0.2),
               note("Días sin workshop: adaptación libre + punto de control "
                    "(3 líneas de avance + bloqueos vía Hermes)."),
@@ -214,8 +290,13 @@ def build():
               h3("Jueves o viernes"),
               b("MCP Servers: Figma como fuente de diseño leíble por IA · Azure DevOps WI como PRD "
                 "· claude-mem para memoria persistente entre sesiones."),
-              b("Subagentes paralelos: el patrón LLM-as-judge (un modelo evalúa el output de otro). "
-                "Caso real: job_hermes_gate en GitLab CI."),
+              b("Subagentes paralelos: el patrón <b>LLM-as-judge</b> — un modelo genera el output, "
+                "otro lo evalúa contra un rubric. "
+                "Caso real implementado en <i>hermes-exploratory</i> Phase 2: "
+                "spec → Hermes (generator) → SQL → Hermes (judge) → score 0–100 → "
+                "comentario en PR → gate (precision ≥ 0.85 = merge ✓, si no → itera la spec). "
+                "El gate bloquea el merge hasta que el output pase el umbral, "
+                "sin intervención manual."),
               b("Git con AI: commits semánticos, PRs, ai-dev-log para trazabilidad de sesiones."),
               b("Cierre del curso y lanzamiento oficial de los Retos Fase 1."),
               sp(0.3)]
@@ -380,7 +461,7 @@ def build():
         note("Dudas durante el programa: canalízalas a Diego Trujillo — diego.trujillo@jikkosoft.com o Google Chat."),
     ]
 
-    out = "/Users/dorothy/Stuff/Jikkosoft/Code/ai/lab/reto-ai-first-fase1/1-programa-ai-first-fase1.pdf"
+    out = "/Users/dorothy/Stuff/Jikkosoft/Code/ai/lab/reto-ai-first-fase1/docs/1a-guia-ai-first.pdf"
     doc = SimpleDocTemplate(
         out, pagesize=A4,
         leftMargin=2 * cm, rightMargin=2 * cm,
