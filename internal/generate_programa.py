@@ -179,7 +179,7 @@ def build():
     story += [tbl_req, sp(0.7)]
 
     # ── Principio fundacional ────────────────────────────────────────────────
-    story += [
+    story += [KeepTogether([
         h1("Principio fundacional"),
         sp(0.5),
         Paragraph(
@@ -191,7 +191,7 @@ def build():
             S["box"],
         ),
         sp(0.5),
-    ]
+    ])]
 
     # ── Estructura general ───────────────────────────────────────────────────
     story += [h1("Estructura general"), sp(0.4)]
@@ -340,16 +340,14 @@ def build():
               sp(0.3),
               b("MCP Servers: Figma como fuente de diseño leíble por IA · Azure DevOps WI como PRD "
                 "· claude-mem para memoria persistente entre sesiones."),
-              b("Subagentes paralelos: el patrón <b>LLM-as-judge</b> — un modelo genera el output, "
-                "otro lo evalúa contra un rubric. "
-                "Caso real implementado en <i>hermes-exploratory</i> Phase 2: "
-                "spec → Hermes (generator) → SQL → Hermes (judge) → score 0–100 → "
-                "comentario en PR → gate (precision ≥ 0.85 = merge ✓, si no → itera la spec). "
-                "El gate bloquea el merge hasta que el output pase el umbral, "
-                "sin intervención manual."),
-              b("Git con AI: commits semánticos, PRs, ai-dev-log para trazabilidad de sesiones."),
-              b("Cierre del curso y lanzamiento oficial de los Retos Fase 1."),
-              sp(0.3)]
+              KeepTogether([
+                  b("Subagentes paralelos: patrón <b>LLM-as-judge</b> — un modelo genera el output, "
+                    "otro lo evalúa. Caso real en <i>hermes-exploratory</i> Phase 2: "
+                    "spec → generator → SQL → judge → score 0–100 → gate (precision ≥ 0.85 = merge ✓)."),
+                  b("Git con AI: commits semánticos, PRs, ai-dev-log para trazabilidad de sesiones."),
+                  b("Cierre del curso y lanzamiento oficial de los Retos Fase 1."),
+                  sp(0.3),
+              ])]
 
     # ── Etapa 2 ──────────────────────────────────────────────────────────────
     story += [PageBreak(), h1("Etapa 2 — Reto Fase 1 · 26 jun – 6 jul"), sp(0.2),
