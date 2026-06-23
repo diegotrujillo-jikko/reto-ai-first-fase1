@@ -101,6 +101,7 @@ def build():
     story += [
         sp(1.0),
         Paragraph("Reto AI-First · Fase 1", S["title"]),
+        sp(0.4),
         Paragraph("Implementa una app similar a mini-tienda-base — sin escribir código manualmente", S["subtitle"]),
         Paragraph("Track DEV · Preparado por Diego Trujillo · diego.trujillo@jikkosoft.com · Jikkosoft", S["subtitle"]),
         sp(0.8),
