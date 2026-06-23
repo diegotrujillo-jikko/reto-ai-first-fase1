@@ -118,7 +118,7 @@ def build():
         p("Este reto es tu espacio para experimentar ese cambio de chip mental en un entorno "
           "seguro, con acompañamiento y una ruta de aprendizaje. No se trata de saberlo todo "
           "desde el día uno: se trata de adaptarte, investigar y construir."),
-        sp(0.3),
+        sp(0.5),
     ]
 
     # ── 2. El reto en una frase ──────────────────────────────────────────────
@@ -129,7 +129,7 @@ def build():
           f"— frontend, backend, base de datos e integración — sobre un caso de uso comercial "
           f"distinto a SILIN y distinto a mini-tienda, sin escribir código a mano: todo se "
           f"genera y se itera a través de {LLM_NOTE}."),
-        sp(0.3),
+        sp(0.5),
     ]
 
     # ── 3. Qué debes construir ───────────────────────────────────────────────
@@ -159,7 +159,7 @@ def build():
         colWidths=[3.5 * cm, W - 3.5 * cm],
     )
     tbl_comp.setStyle(tbl_style())
-    story += [tbl_comp, sp(0.3)]
+    story += [tbl_comp, sp(0.5)]
 
     # ── 4. Reglas del juego ──────────────────────────────────────────────────
     story += [
@@ -172,7 +172,7 @@ def build():
         n(3, "Tu repo, tu casa. Sube el código a GitHub público o GitLab, donde prefieras."),
         n(4, "Provee tu acceso a modelos. Necesitarás un proveedor LLM conectado a Hermes "
            "(OpenAI, Anthropic, etc.). Ver punto 7 sobre créditos."),
-        sp(0.3),
+        sp(0.5),
     ]
 
     # ── 5. Qué debes entregar ────────────────────────────────────────────────
@@ -197,7 +197,7 @@ def build():
         "Enlace al repositorio",
     ]:
         story.append(b(item))
-    story.append(sp(0.3))
+    story.append(sp(0.5))
 
     # ── 6. Cronograma ────────────────────────────────────────────────────────
     story += [PageBreak(), h1("6. Cronograma (tentativo)"), sp(0.4)]
@@ -278,7 +278,7 @@ def build():
 
     # ── 9. Evaluación ────────────────────────────────────────────────────────
     story += [
-        PageBreak(),
+        sp(0.5),
         h1("9. Cómo te vamos a evaluar (visión general)"),
         sp(0.4),
         p("No buscamos el proyecto más grande, buscamos <b>criterio y adaptación</b>. "
