@@ -350,7 +350,7 @@ def build():
               ])]
 
     # ── Etapa 2 ──────────────────────────────────────────────────────────────
-    story += [PageBreak(), h1("Etapa 2 — Reto Fase 1 · 26 jun – 6 jul"), sp(0.2),
+    story += [h1("Etapa 2 — Reto Fase 1 · 26 jun – 6 jul"), sp(0.2),
               h2("Dos tracks en paralelo"), sp(0.1)]
 
     # Track DEV
