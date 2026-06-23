@@ -110,13 +110,15 @@ def build():
 
     # ── Title block ──────────────────────────────────────────────────────────
     story += [
-        sp(1.0),
+        sp(2.5),
         Paragraph("Programa AI-First · Fase 1", S["title"]),
+        sp(0.5),
         Paragraph("Jikkosoft — Preparación y Reto", S["subtitle"]),
+        sp(0.2),
         Paragraph("Preparado por Diego Trujillo · diego.trujillo@jikkosoft.com", S["subtitle"]),
-        sp(0.8),
+        sp(1.2),
         hr(),
-        sp(0.8),
+        sp(1.0),
     ]
 
     # ── Aspectos importantes ─────────────────────────────────────────────────
@@ -222,8 +224,8 @@ def build():
               sp(0.5)]
 
     # ── Etapa 1 ──────────────────────────────────────────────────────────────
-    story += [PageBreak(), h1("Etapa 1 — Capacitación · 24–25 jun"), sp(0.2),
-              h2("Workshop 1 — Apertura + Codex CLI · Miércoles 24 jun"),
+    story += [h1("Etapa 1 — Capacitación · 24–25 jun"), sp(0.2),
+              h2("Workshop 1 — Apertura + Codex CLI · Miércoles 24 jun (1–1.5 hrs)"),
               b("Apertura del programa: contexto del “momento cero” y el nuevo modelo operativo AI-first."),
               b("Instalación y configuración: Claude Code + modelo conectado a Hermes."),
               b("El ritual /init en vivo sobre un repo vacío: qué genera, por qué importa."),
@@ -254,7 +256,7 @@ def build():
     )
     tbl_hermes.setStyle(tbl_style(header_bg=colors.HexColor("#00838F"), alt=TEAL_LIGHT))
     story += [sp(0.1), tbl_hermes, sp(0.3),
-              h2("Workshop 2 — Spec Engineering · Miércoles 24 jun, tarde"),
+              h2("Workshop 2 — Spec Engineering · Miércoles 24 jun, tarde (1–1.5 hrs)"),
               b("Por qué la calidad de la spec supera la elección del modelo."),
               b("La matriz real: 3 niveles de spec × 7 modelos — caso de estudio extraído del "
                 "experimento interno de Diego (<i>hermes-exploratory</i>)."),
@@ -300,7 +302,7 @@ def build():
 
     # ── Workshop 3 (dentro de Etapa 1) ───────────────────────────────────────
     story += [sp(0.4),
-              h2("Workshop 3 — CLAUDE.md · Jueves 25 jun, mañana"),
+              h2("Workshop 3 — CLAUDE.md · Jueves 25 jun, mañana (1–1.5 hrs)"),
               b("El /init genera el esqueleto; tú lo conviertes en un contrato AI preciso."),
               b("Componentes esenciales: authority hierarchy, safe/unsafe zones, naming conventions, "
                 "model selection table."),
@@ -316,7 +318,7 @@ def build():
 
     # ── Workshop 4 (dentro de Etapa 1) ───────────────────────────────────────
     story += [sp(0.4),
-              h2("Workshop 4 — Plan & Loop + MCP + Subagentes + Git · Jueves 25 jun, tarde"),
+              h2("Workshop 4 — Plan & Loop + MCP + Subagentes + Git · Jueves 25 jun, tarde (1–1.5 hrs)"),
               b("/plan antes de cualquier tarea compleja: cómo estructurar el trabajo antes "
                 "de generar código."),
               b("Loop modes para tareas iterativas."),
