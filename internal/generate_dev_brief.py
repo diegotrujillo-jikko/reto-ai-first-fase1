@@ -7,8 +7,8 @@ from reportlab.lib.units import cm
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
-    HRFlowable, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table,
-    TableStyle,
+    HRFlowable, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate,
+    Spacer, Table, TableStyle,
 )
 
 FONT_DIR = "/Users/dorothy/Library/Fonts"
@@ -26,26 +26,30 @@ LLM_NOTE = ("Hermes como agente principal y uno o varios LLMs de su preferencia 
             "DeepSeek, Kimi K2, etc.)")
 
 def styles():
-    base = dict(fontName="DejaVu", fontSize=9.5, leading=16, alignment=TA_JUSTIFY,
-                spaceAfter=6)
+    base = dict(fontName="DejaVu", fontSize=9.5, leading=17, alignment=TA_JUSTIFY,
+                spaceAfter=8)
     return {
         "title": ParagraphStyle("title", fontName="DejaVu-Bold", fontSize=20,
-                                textColor=TEAL, alignment=TA_CENTER, spaceAfter=6),
+                                textColor=TEAL, alignment=TA_CENTER, spaceAfter=8),
         "subtitle": ParagraphStyle("subtitle", fontName="DejaVu", fontSize=10.5,
                                    textColor=colors.HexColor("#444444"),
-                                   alignment=TA_CENTER, spaceAfter=4),
+                                   alignment=TA_CENTER, spaceAfter=5),
         "h1": ParagraphStyle("h1", fontName="DejaVu-Bold", fontSize=13,
                              textColor=WHITE, alignment=TA_LEFT, leading=18),
         "h2": ParagraphStyle("h2", fontName="DejaVu-Bold", fontSize=10.5,
-                             textColor=TEAL, spaceBefore=14, spaceAfter=5),
+                             textColor=TEAL, spaceBefore=18, spaceAfter=6),
         "body": ParagraphStyle("body", **base),
         "bullet": ParagraphStyle("bullet", **{**base, "leftIndent": 14,
-                                              "bulletIndent": 4, "spaceAfter": 5}),
+                                              "bulletIndent": 4, "spaceAfter": 6}),
         "numbered": ParagraphStyle("numbered", **{**base, "leftIndent": 18,
-                                                  "bulletIndent": 4, "spaceAfter": 5}),
+                                                  "bulletIndent": 4, "spaceAfter": 6}),
         "note": ParagraphStyle("note", fontName="DejaVu-Italic", fontSize=8.5,
                                textColor=colors.HexColor("#555555"),
                                alignment=TA_JUSTIFY, spaceAfter=6, leading=13),
+        "link": ParagraphStyle("link", fontName="DejaVu", fontSize=9.5,
+                               textColor=colors.HexColor("#0066CC"),
+                               leftIndent=14, bulletIndent=4,
+                               leading=16, spaceAfter=5, alignment=TA_LEFT),
     }
 
 def tbl_style(header_bg=TEAL, alt=GREY_ROW):
@@ -82,6 +86,10 @@ def build():
     def p(text):  return Paragraph(text, S["body"])
     def b(text):  return Paragraph(f"• {text}", S["bullet"])
     def n(i, text): return Paragraph(f"{i}. {text}", S["numbered"])
+    def lnk(label, url):
+        return Paragraph(
+            f'• <a href="{url}" color="#0066CC"><u>{label}</u></a>', S["link"]
+        )
     def note(text): return Paragraph(text, S["note"])
     def sp(h=0.4): return Spacer(1, h * cm)
     def hr(): return HRFlowable(width="100%", thickness=0.5,
@@ -235,22 +243,38 @@ def build():
         p("No estás solo. Te sugerimos recursos para arrancar (no son obligatorios ni "
           "exhaustivos — explóralos y trae los tuyos). Sea cual sea la herramienta que "
           "elijas, recuerda que debe conectarse a través de Hermes."),
-        sp(0.2),
-        Paragraph("Fundamentos de orquestación de IA y agentes", S["h2"]),
-        b("Anthropic — Effective context engineering for AI agents"),
-        b("Anthropic Academy — Build with Claude"),
-        Paragraph("Escritura de specs / prompting efectivo", S["h2"]),
-        b("Guía de prompt engineering (Claude Docs)"),
-        b("Tutorial interactivo de prompting (Anthropic)"),
-        Paragraph("Herramientas de desarrollo asistido por IA", S["h2"]),
-        b("Documentación de Claude Code"),
-        Paragraph("Uso de Hermes (obligatorio)", S["h2"]),
-        b("Hermes Agent (Nous Research) — repositorio y documentación oficial"),
-        Paragraph("Manejo de repositorios (GitHub / GitLab)", S["h2"]),
-        b("GitHub — primeros pasos"),
-        b("GitLab Docs"),
         sp(0.3),
     ]
+    story += [KeepTogether([
+        Paragraph("Fundamentos de orquestación de IA y agentes", S["h2"]),
+        lnk("Anthropic — Effective context engineering for AI agents",
+            "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"),
+        lnk("Anthropic Academy — Build with Claude",
+            "https://www.anthropic.com/learn/build-with-claude"),
+    ])]
+    story += [KeepTogether([
+        Paragraph("Escritura de specs / prompting efectivo", S["h2"]),
+        lnk("Guía de prompt engineering (Claude Docs)",
+            "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview"),
+        lnk("Tutorial interactivo de prompting (Anthropic)",
+            "https://github.com/anthropics/prompt-eng-interactive-tutorial"),
+    ])]
+    story += [KeepTogether([
+        Paragraph("Herramientas de desarrollo asistido por IA", S["h2"]),
+        lnk("Documentación de Claude Code",
+            "https://code.claude.com/docs/en/overview"),
+    ])]
+    story += [KeepTogether([
+        Paragraph("Uso de Hermes (obligatorio)", S["h2"]),
+        lnk("Hermes Agent (Nous Research) — repositorio y documentación oficial",
+            "https://github.com/NousResearch/hermes-agent"),
+    ])]
+    story += [KeepTogether([
+        Paragraph("Manejo de repositorios (GitHub / GitLab)", S["h2"]),
+        lnk("GitHub — primeros pasos", "https://docs.github.com/get-started"),
+        lnk("GitLab Docs", "https://docs.gitlab.com/"),
+    ])]
+    story.append(sp(0.3))
 
     # ── 9. Evaluación ────────────────────────────────────────────────────────
     story += [
@@ -275,7 +299,7 @@ def build():
              "diego.trujillo@jikkosoft.com o Google Chat."),
     ]
 
-    out = "/Users/dorothy/Stuff/Jikkosoft/Code/ai/lab/reto-ai-first-fase1/2a-reto-ai-first-fase1-brief.pdf"
+    out = "/Users/dorothy/Stuff/Jikkosoft/Code/ai/lab/reto-ai-first-fase1/challenge/2a-reto-ai-first-fase1.pdf"
     doc = SimpleDocTemplate(
         out, pagesize=A4,
         leftMargin=2 * cm, rightMargin=2 * cm,
