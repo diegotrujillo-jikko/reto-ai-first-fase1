@@ -226,19 +226,20 @@ def build():
 
     # Track DEV
     story += [
-        h2("Track DEV — Construye un producto end-to-end"),
-        p(f"<b>Misión:</b> En 4 días, construir un producto funcional completo sin escribir "
-          f"código a mano. Todo se genera y se itera a través de {LLM_NOTE}."),
+        h2("Track DEV — Implementa una app similar a mini-tienda-base"),
+        p(f"<b>Misión:</b> En 4 días, implementar una app con la misma estructura que "
+          f"<i>mini-tienda-base</i> — frontend, backend, base de datos e integración — "
+          f"sobre un caso de uso comercial distinto a SILIN, sin escribir código a mano. "
+          f"Todo se genera y se itera a través de {LLM_NOTE}."),
         sp(0.15),
-        h3("Requisitos mínimos del producto:"),
+        h3("Componentes obligatorios (misma estructura que mini-tienda-base):"),
     ]
     tbl_dev = Table(
         [
             ["Componente", "Requisito"],
-            ["Backend", "Servicio con lógica de negocio y API"],
-            ["Frontend", "Interfaz funcional (web)"],
-            ["Base de datos", "PostgreSQL, MongoDB o la de tu preferencia"],
-            ["Web service", "Al menos un endpoint expuesto o consumido"],
+            ["Backend", "Servicio con lógica de negocio y API REST"],
+            ["Frontend", "Interfaz web funcional (equivalente a static/index.html)"],
+            ["Base de datos", "PostgreSQL, SQLite, MongoDB o la de tu preferencia"],
             ["Integración", "Al menos una integración externa o entre módulos propios"],
         ],
         colWidths=[4 * cm, W - 4 * cm],
@@ -248,7 +249,7 @@ def build():
     for i, r in enumerate([
         "Cero código manual — solo especificas, diriges, revisas e iteras.",
         f"{LLM_NOTE} — obligatorio e innegociable.",
-        "Idea libre, distinta a SILIN.",
+        "Caso de uso libre — distinto a SILIN y distinto a mini-tienda.",
         "Repositorio público (GitHub o GitLab).",
     ], 1):
         story.append(Paragraph(f"{i}. {r}", S["bullet"]))

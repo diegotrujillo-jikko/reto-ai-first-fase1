@@ -2,7 +2,7 @@
 
 Este repositorio contiene el **Reto AI-First · Fase 1**, que comprende dos tracks paralelos:
 
-- **Track DEV** — construir un producto full-stack (backend + frontend + DB + integración) sobre cualquier caso de uso comercial distinto a SILIN, sin escribir código manualmente, usando Hermes como agente principal y uno o varios LLMs de su preferencia para codificar o implementar (ej: Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.).
+- **Track DEV** — implementar una app con la misma estructura que `mini-tienda-base` (frontend + backend + DB + integración) sobre un caso de uso comercial distinto a SILIN, sin escribir código manualmente, usando Hermes como agente principal y uno o varios LLMs de su preferencia para codificar o implementar (ej: Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.).
 - **Track QA** — diseñar y ejecutar una estrategia de pruebas completa sobre la **mini tienda full-stack** incluida en este repo, sin modificar la aplicación, usando Hermes como agente principal y uno o varios LLMs de su preferencia para codificar o implementar (ej: Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.).
 
 ## Contenido del repositorio
@@ -19,11 +19,11 @@ Ambos tracks tienen 4 días de ejecución y entregan: repo + `HERMES_CONTEXT.md`
 
 ### Track DEV
 
-Construir un producto full-stack end-to-end sobre **cualquier caso de uso comercial** (distinto a SILIN), sin escribir código manualmente. Se espera:
+Implementar una app con la **misma estructura que `mini-tienda-base`** — frontend, backend, base de datos e integración — sobre un caso de uso comercial distinto a SILIN, sin escribir código manualmente. Se espera:
 
-- Backend + frontend + base de datos + integración externa.
-- 100% generado mediante Hermes (agente AI).
-- Idea libre; el criterio es coherencia y funcionamiento real del producto.
+- Misma arquitectura de referencia: frontend web + backend con API + DB + al menos una integración.
+- Caso de uso libre (e-commerce, reservas, inventario, etc.) — distinto a SILIN y distinto a mini-tienda.
+- 100% generado con Hermes + LLMs; sin código manual.
 
 ### Track QA
 

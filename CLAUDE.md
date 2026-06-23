@@ -19,7 +19,7 @@ This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation 
 
 ### Two tracks in Week 4
 
-**Track DEV** — build an end-to-end product (backend + frontend + DB + integration) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). Free commercial use case — any domain except SILIN. No manual code.
+**Track DEV** — implement an app with the same structure as `mini-tienda-base` (frontend + backend + DB + integration) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). Free commercial use case — any domain except SILIN and except mini-tienda itself. No manual code.
 
 **Track QA** — design and execute a full test strategy on `mini-tienda-base` (the SUT in this repo) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). No manual scripts. Goal is NOT to modify the app — test it.
 
@@ -33,7 +33,7 @@ Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday of th
 | Working app | Backend + frontend + DB + at least one external integration, runnable locally |
 | README | How to run, architecture overview, use case description |
 
-The product idea is free — any commercial domain except SILIN. Evaluated on: AI-first workflow adherence, product coherence, and working demo.
+The product must mirror `mini-tienda-base` structure (frontend + backend + DB + integration) on a free commercial domain — any except SILIN and mini-tienda. Evaluated on: AI-first workflow adherence, product coherence, and working demo.
 
 ## Track QA — SUT Reference
 
