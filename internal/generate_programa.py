@@ -119,6 +119,48 @@ def build():
         sp(0.8),
     ]
 
+    # ── Aspectos importantes ─────────────────────────────────────────────────
+    story += [
+        h1("Aspectos importantes"),
+        sp(0.3),
+        roi("<b>Por qué Hermes,</b> "
+            "Jikkosoft pasa de escribir código a orquestar contexto. "
+            "La investigación interna (<i>hermes-exploratory</i>, 2026) lo confirma con datos: "
+            "mejorar la spec es <b>3× más efectivo que actualizar el modelo</b> — "
+            "pasar de Spec A (~150 palabras) a Spec B (~480 palabras) produce +26 puntos "
+            "promedio en calidad de output; subir de Haiku a Opus en la misma spec produce "
+            "solo +12 a +24. Una spec mal escrita hace que el modelo más costoso alucine "
+            "convenciones e ignore reglas de integridad. Una spec bien escrita hace que el "
+            "modelo más barato produzca output de producción. Hermes es el canal obligatorio "
+            "que hace este proceso repetible, trazable y transferible."),
+        sp(0.3),
+        h2("Requisitos mínimos"),
+        sp(0.1),
+    ]
+    tbl_req = Table(
+        [
+            ["Herramienta", "Instalación / Acceso"],
+            ["Claude Code (Claude CLI)",
+             "claude.ai/code — descarga el instalador o sigue la guía de la plataforma"],
+            ["Hermes agent (NousResearch)",
+             "curl -fsSL https://raw.githubusercontent.com/NousResearch/"
+             "hermes-agent/main/scripts/install.sh | bash\n"
+             "Verificar: hermes --help && hermes doctor"],
+            ["Git", "git --version · macOS/Linux: preinstalado · Windows: git-scm.com"],
+            ["GPG key",
+             "gpg --full-generate-key (RSA 4096, sin expiración, email de trabajo) — "
+             "requerido para acceso git-crypt a archivos internos del repo"],
+            ["API key LLM",
+             "Al menos un proveedor: Anthropic (console.anthropic.com) · "
+             "DeepSeek (platform.deepseek.com) · Moonshot/Kimi (platform.moonshot.ai)"],
+            ["Cuenta GitHub o GitLab",
+             "Repo público donde alojar la entrega del reto"],
+        ],
+        colWidths=[4.5 * cm, W - 4.5 * cm],
+    )
+    tbl_req.setStyle(tbl_style(header_bg=colors.HexColor("#00838F"), alt=TEAL_LIGHT))
+    story += [tbl_req, sp(0.4)]
+
     # ── Principio fundacional ────────────────────────────────────────────────
     story += [
         h1("Principio fundacional"),
@@ -131,35 +173,30 @@ def build():
             "trabaja sin contexto y los resultados son impredecibles.",
             S["box"],
         ),
-        sp(0.4),
-        roi("<b>Por qué Hermes — el argumento del CEO.</b> "
-            "Jikkosoft pasa de escribir código a orquestar contexto. "
-            "La investigación interna (<i>hermes-exploratory</i>, 2026) lo confirma con datos: "
-            "mejorar la spec es <b>3× más efectivo que actualizar el modelo</b> — "
-            "pasar de Spec A (~150 palabras) a Spec B (~480 palabras) produce +26 puntos "
-            "promedio en calidad de output; subir de Haiku a Opus en la misma spec produce "
-            "solo +12 a +24. Una spec mal escrita hace que el modelo más costoso alucine "
-            "convenciones e ignore reglas de integridad. Una spec bien escrita hace que el "
-            "modelo más barato produzca output de producción. Hermes es el canal obligatorio "
-            "que hace este proceso repetible, trazable y transferible."),
-        sp(0.4),
+        sp(0.5),
     ]
 
     # ── Estructura general ───────────────────────────────────────────────────
     story += [h1("Estructura general"), sp(0.4)]
     tbl_struct = Table(
         [
-            ["Semana", "Tema", "Workshops"],
-            ["1", "Claude CLI + Spec Engineering", "2"],
-            ["2", "CLAUDE.md", "2"],
-            ["3", "Plan & Loop · MCP Servers · Subagentes · Git", "2"],
-            ["4", "Reto Fase 1 (DEV + QA en paralelo)", "—"],
+            ["Etapa", "Descripción", "Fechas"],
+            ["1 — Capacitación",
+             "Claude CLI · Spec Engineering · CLAUDE.md · "
+             "Plan & Loop · MCP Servers · Subagentes · Git",
+             "24–25 jun"],
+            ["2 — Adaptabilidad",
+             "Construcción y entrega del proyecto (Reto Fase 1: DEV + QA en paralelo)",
+             "26 jun – 6 jul"],
+            ["3 — Adaptabilidad\ncon lo actual",
+             "Integración del workflow AI-first con proyectos y contexto existente",
+             "hasta 7 jul"],
         ],
-        colWidths=[1.8 * cm, W - 4.8 * cm, 3 * cm],
+        colWidths=[3.5 * cm, W - 7 * cm, 3.5 * cm],
     )
     tbl_struct.setStyle(tbl_style())
     story += [tbl_struct, sp(0.2),
-              note("6 workshops en total · 1–2 por semana · evaluación el viernes de la semana 4."),
+              note("Evaluación: viernes 7 de julio · demo de 5–7 min por track."),
               sp(0.3)]
 
     # ── Semana 1 ─────────────────────────────────────────────────────────────
