@@ -187,10 +187,16 @@ Para cada spec (`a`, `b`, `c`), generar el SQL con Hermes:
 hermes
 /model anthropic:claude-sonnet-4-6
 /new
-# pegar contenido de phase-1/01-specs/spec_a.md y pedir:
-# "Generate the PostgreSQL schema. Output only SQL — no prose, no fences."
-# guardar respuesta en phase-1/02-outputs/r1_sonnet_a.sql
+# 1. Pegar el contenido de phase-1/01-specs/spec_a.md en el TUI
+# 2. Agregar al final:
+#    "Generate the PostgreSQL schema. Output only SQL — no prose, no fences."
+# 3. El modelo responde con SQL puro en el TUI — copiarlo manualmente
+# 4. Pegarlo en un archivo nuevo: phase-1/02-outputs/r1_sonnet_a.sql
 ```
+
+> El archivo `.sql` no se genera automáticamente — es copiar la respuesta del TUI
+> y guardarla en el path indicado. El prompt `"no prose, no fences"` garantiza que
+> el output sea SQL limpio sin markdown ni comentarios, listo para pegar.
 
 Registrar sin subir a W&B:
 
