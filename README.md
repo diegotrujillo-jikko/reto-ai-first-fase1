@@ -1,9 +1,6 @@
 # Reto AI-First Fase 1
 
-Este repositorio contiene el **Reto AI-First · Fase 1**, que comprende dos tracks paralelos:
-
-- **Track DEV** — implementar una app con la misma estructura que `3-challenge/mini-tienda-base` (frontend + backend + DB + integración) sobre un caso de uso comercial distinto a SILIN, sin escribir código manualmente, usando Hermes como agente principal y uno o varios LLMs de su preferencia para codificar o implementar (ej: Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.).
-- **Track QA** — diseñar y ejecutar una estrategia de pruebas completa sobre la **mini tienda full-stack** en `3-challenge/mini-tienda-base`, sin modificar la aplicación, usando Hermes como agente principal y uno o varios LLMs de su preferencia para codificar o implementar (ej: Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.).
+Este repositorio contiene el **Reto AI-First · Fase 1**. Descripción completa de los tracks disponible a partir del **26 de junio**.
 
 ## Estructura del repositorio
 
