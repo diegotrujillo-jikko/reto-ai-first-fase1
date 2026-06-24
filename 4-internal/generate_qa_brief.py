@@ -258,7 +258,6 @@ def build():
     story.append(sp(0.5))
 
     # ── 7. Cronograma ────────────────────────────────────────────────────────
-    story += [PageBreak(), h1("7. Cronograma (tentativo)"), sp(0.4)]
     tc_hdr = ParagraphStyle("tc_hdr", fontName="DejaVu-Bold", fontSize=9,
                             textColor=WHITE, leading=13)
     tc_body = ParagraphStyle("tc_body", fontName="DejaVu", fontSize=8.5,
@@ -278,10 +277,12 @@ def build():
         colWidths=[2.5 * cm, 2.5 * cm, W - 5 * cm],
     )
     tbl_cron.setStyle(tbl_style())
-    story += [tbl_cron, sp(0.3),
-              note("Punto de control diario: un reporte breve (3 lineas) de avance + bloqueos. "
-                   "Sirve para acompanarte, no para vigilarte."),
-              sp(0.3)]
+    story += [KeepTogether([
+        h1("7. Cronograma (tentativo)"), sp(0.4), tbl_cron, sp(0.3),
+        note("Punto de control diario: un reporte breve (3 lineas) de avance + bloqueos. "
+             "Sirve para acompanarte, no para vigilarte."),
+        sp(0.3),
+    ])]
 
     # ── 8. Créditos ──────────────────────────────────────────────────────────
     story += [
@@ -320,28 +321,22 @@ def build():
     story.append(sp(0.3))
 
     # ── 10. Evaluación ───────────────────────────────────────────────────────
-    story += [
-        sp(0.5),
-        h1("10. Como te vamos a evaluar (vision general)"),
-        sp(0.4),
+    eval_items = [
+        h1("10. Como te vamos a evaluar (vision general)"), sp(0.4),
         p("No buscamos la suite mas grande, buscamos <b>criterio y profundidad</b>. "
           "Valoramos especialmente:"),
         sp(0.2),
-    ]
-    for item in [
-        "La calidad de tu SOUL.md y la trazabilidad de tu proceso",
-        "Tu autonomia: como investigaste y resolviste bloqueos por tu cuenta",
-        "La profundidad de cobertura: no solo happy path — edge cases, negativos, integridad de datos",
-        "Los defectos encontrados y la calidad de su documentacion (severidad, repro, evidencia)",
-        "Las suites son ejecutables: Playwright y pytest corren contra localhost:8000 sin modificacion manual",
-        "Tu prevision y comunicacion a tiempo",
-    ]:
-        story.append(b(item))
-    story += [
+        b("La calidad de tu SOUL.md y la trazabilidad de tu proceso"),
+        b("Tu autonomia: como investigaste y resolviste bloqueos por tu cuenta"),
+        b("La profundidad de cobertura: no solo happy path — edge cases, negativos, integridad de datos"),
+        b("Los defectos encontrados y la calidad de su documentacion (severidad, repro, evidencia)"),
+        b("Las suites son ejecutables: Playwright y pytest corren contra localhost:8000 sin modificacion manual"),
+        b("Tu prevision y comunicacion a tiempo"),
         sp(0.4),
         note("Dudas durante el reto: canarizalas a Diego Trujillo — "
              "diego.trujillo@jikkosoft.com o Google Chat."),
     ]
+    story.append(KeepTogether(eval_items))
 
     out = "/Users/dorothy/Stuff/Jikkosoft/Code/ai/lab/reto-ai-first-fase1/3-challenge/2b-reto-ai-first-fase1-qa.pdf"
     doc = SimpleDocTemplate(
