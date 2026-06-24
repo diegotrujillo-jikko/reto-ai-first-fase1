@@ -30,9 +30,13 @@ Este repositorio contiene el **Reto AI-First · Fase 1**, que comprende dos trac
 
 ## Qué es este reto
 
+> **⚠️ Reto en construcción.** El brief completo, instrucciones detalladas y carpetas de entrega para ambos tracks estarán disponibles en esta sección y en `3-challenge/` a partir del **viernes 26 de junio**.
+
 Ambos tracks tienen 4 días de ejecución y entregan: repo + `HERMES_CONTEXT.md` + demo de 5–7 min el viernes de la semana del reto.
 
 ### Track DEV
+
+> **⚠️ Instrucciones completas disponibles el 26 de junio.**
 
 Implementar una app con la **misma estructura que `3-challenge/mini-tienda-base`** — frontend, backend, base de datos e integración — sobre un caso de uso comercial distinto a SILIN, sin escribir código manualmente. Se espera:
 
@@ -41,6 +45,8 @@ Implementar una app con la **misma estructura que `3-challenge/mini-tienda-base`
 - 100% generado con Hermes + LLMs; sin código manual.
 
 ### Track QA
+
+> **⚠️ Instrucciones completas disponibles el 26 de junio.**
 
 El foco es **probar** la mini tienda incluida en este repo, no modificarla. Se espera diseñar y ejecutar una estrategia de pruebas que cubra:
 
@@ -53,6 +59,8 @@ El foco es **probar** la mini tienda incluida en este repo, no modificarla. Se e
 - Manejo de fallos en integración (simulación de caídas).
 
 ## MiniTienda Base App
+
+> **ℹ️ La mini tienda actual es una versión preliminar.** El reto definitivo incluirá ajustes y casos de prueba adicionales que se publicarán el **26 de junio**.
 
 `3-challenge/mini-tienda-base/` es la aplicación de referencia que debes usar como base para el reto. Incluye:
 
