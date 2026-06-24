@@ -181,22 +181,30 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install python-dotenv
 ```
 
-Para cada spec (`a`, `b`, `c`), generar el SQL con Hermes:
+Para cada spec (`a`, `b`, `c`), el flujo es:
 
+**1. Abrir Hermes y seleccionar modelo**
 ```bash
 hermes
 /model anthropic:claude-sonnet-4-6
 /new
-# 1. Pegar el contenido de phase-1/01-specs/spec_a.md en el TUI
-# 2. Agregar al final:
-#    "Generate the PostgreSQL schema. Output only SQL — no prose, no fences."
-# 3. El modelo responde con SQL puro en el TUI — copiarlo manualmente
-# 4. Pegarlo en un archivo nuevo: phase-1/02-outputs/r1_sonnet_a.sql
 ```
 
-> El archivo `.sql` no se genera automáticamente — es copiar la respuesta del TUI
-> y guardarla en el path indicado. El prompt `"no prose, no fences"` garantiza que
-> el output sea SQL limpio sin markdown ni comentarios, listo para pegar.
+**2. Pegar el contenido de la spec + el prompt**
+
+En el TUI, pegar el contenido de `phase-1/01-specs/spec_a.md` seguido de:
+```
+Generate the PostgreSQL schema. Output only SQL — no prose, no fences.
+```
+
+**3. Copiar la respuesta y guardarla como archivo**
+
+El modelo responde con SQL puro en el TUI. Copiarlo y pegarlo en un archivo nuevo:
+```
+phase-1/02-outputs/r1_sonnet_a.sql
+```
+
+Repetir para `spec_b.md` → `r1_sonnet_b.sql` y `spec_c.md` → `r1_sonnet_c.sql`.
 
 Registrar sin subir a W&B:
 
