@@ -102,7 +102,7 @@ def build():
         sp(1.0),
         Paragraph("Reto AI-First · Fase 1", S["title"]),
         sp(0.4),
-        Paragraph("Implementa una app similar a mini-tienda-base — sin escribir código manualmente", S["subtitle"]),
+        Paragraph("Implementa una app con la misma estructura que gestor-inventario — sin escribir código manualmente", S["subtitle"]),
         Paragraph("Track DEV · Preparado por Diego Trujillo · diego.trujillo@jikkosoft.com · Jikkosoft", S["subtitle"]),
         sp(0.8),
         hr(),
@@ -126,9 +126,9 @@ def build():
     story += [
         h1("2. El reto en una frase"),
         sp(0.4),
-        p(f"En 4 días, implementa una app con la <b>misma estructura que mini-tienda-base</b> "
+        p(f"En 4 días, implementa una app con la <b>misma estructura que gestor-inventario</b> "
           f"— frontend, backend, base de datos e integración — sobre un caso de uso comercial "
-          f"distinto a SILIN y distinto a mini-tienda, sin escribir código a mano: todo se "
+          f"distinto a SILIN, sin escribir código a mano: todo se "
           f"genera y se itera a través de {LLM_NOTE}."),
         sp(0.5),
     ]
@@ -138,10 +138,9 @@ def build():
         h1("3. Qué debes construir"),
         sp(0.4),
         p("La idea es tuya: una necesidad real, un caso de uso comercial, una herramienta "
-          "interna… lo que se te ocurra, siempre que sea <b>distinto a SILIN y distinto a "
-          "mini-tienda</b>."),
+          "interna… lo que se te ocurra, siempre que sea <b>distinto a SILIN</b>."),
         p("Sea cual sea la idea, el producto debe incluir obligatoriamente los mismos "
-          "componentes que mini-tienda-base:"),
+          "componentes que gestor-inventario:"),
         sp(0.2),
     ]
     tbl_comp = Table(
@@ -150,7 +149,7 @@ def build():
             ["Backend",
              "Servicio con lógica de negocio y API REST"],
             ["Frontend",
-             "Interfaz web funcional (equivalente a static/index.html de mini-tienda-base)"],
+             "Interfaz web funcional (equivalente a static/index.html de gestor-inventario)"],
             ["Base de datos",
              "PostgreSQL, SQLite, MongoDB o la de tu preferencia"],
             ["Integración",
@@ -211,11 +210,11 @@ def build():
     tbl_cron = Table(
         [
             [tc("Día", hdr=True), tc("Fecha", hdr=True), tc("Foco", hdr=True)],
-            [tc("Apertura"), tc("Lun 22 jun"),
+            [tc("Apertura"), tc("Vie 26 jun"),
              tc("Lanzamiento del reto, ruta de aprendizaje, inicio de construcción")],
-            [tc("Días 1–4"), tc("Lun–Jue"),
+            [tc("Días 1–4"), tc("Lun–Jue 30 jun – 3 jul"),
              tc("Construcción + puntos de control diarios")],
-            [tc("Evaluación"), tc("Vie 26 jun"),
+            [tc("Evaluación"), tc("Vie 4 jul"),
              tc("Demos y revisión por grupos")],
         ],
         colWidths=[2.5 * cm, 2.5 * cm, W - 5 * cm],
@@ -290,7 +289,7 @@ def build():
         "La calidad de tu HERMES_CONTEXT.md y la trazabilidad de tu proceso",
         "Tu autonomía: cómo investigaste y resolviste bloqueos por tu cuenta",
         "Qué tan bien orquestaste la IA (claridad de tus specs, iteración, contexto)",
-        "Que el producto funcione end-to-end con todos sus componentes (igual que mini-tienda-base: frontend + backend + DB + integración)",
+        "Que el producto funcione end-to-end con todos sus componentes (igual que gestor-inventario: frontend + backend + DB + integración)",
         "Tu previsión y comunicación a tiempo",
     ]:
         story.append(b(item))
