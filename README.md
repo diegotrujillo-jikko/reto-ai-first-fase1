@@ -27,7 +27,7 @@ Este repositorio contiene el **Reto AI-First · Fase 1** — dos tracks en paral
 
 ## Qué es este reto
 
-Ambos tracks tienen 4 días de ejecución (26 jun → 4 jul) y entregan: repo + `SOUL.md` + demo de 5–7 min el viernes 4 de julio.
+Ambos tracks tienen ejecución del 26 jun al 6 jul y entregan: repo + `SOUL.md` + demo de 5–7 min el martes 7 de julio.
 
 ### Track DEV
 
