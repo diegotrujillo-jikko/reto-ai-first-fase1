@@ -27,7 +27,7 @@ Este repositorio contiene el **Reto AI-First · Fase 1** — dos tracks en paral
 
 ## Qué es este reto
 
-Ambos tracks tienen 4 días de ejecución (26 jun → 4 jul) y entregan: repo + `HERMES_CONTEXT.md` + demo de 5–7 min el viernes 4 de julio.
+Ambos tracks tienen 4 días de ejecución (26 jun → 4 jul) y entregan: repo + `SOUL.md` + demo de 5–7 min el viernes 4 de julio.
 
 ### Track DEV
 
@@ -44,7 +44,7 @@ Implementar el **Portal de Convocatorias Públicas** con Hermes como orquestador
 
 | Archivo | Propósito |
 |---------|-----------|
-| `HERMES_CONTEXT.md` | Log del proceso: scope, tooling, decisiones, blockers |
+| `SOUL.md` | Log del proceso: scope, tooling, decisiones, blockers |
 | App funcionando | Backend + frontend + DB + integración, ejecutable localmente |
 | `README.md` | Cómo ejecutar, arquitectura, descripción del caso de uso |
 
@@ -56,7 +56,7 @@ Diseñar y ejecutar una estrategia de pruebas completa sobre `3-challenge/gestor
 
 | Archivo | Propósito |
 |---------|-----------|
-| `HERMES_CONTEXT.md` | Log del proceso: scope, tooling, decisiones, hallazgos, blockers |
+| `SOUL.md` | Log del proceso: scope, tooling, decisiones, hallazgos, blockers |
 | Plan de pruebas | Estrategia, alcance, riesgos, criterios de aceptación |
 | Casos de prueba | Happy path + edge + negativos, documentados |
 | Suite E2E automatizada | Playwright o equivalente, ejecutable contra localhost:8000 |

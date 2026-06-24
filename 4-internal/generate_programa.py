@@ -439,8 +439,8 @@ def build():
              tc("Backend + Frontend + DB + Integración · punto de control diario (3 líneas vía Hermes)"),
              tc("E2E + API + datos + escenario PRICING_FAIL=1 · punto de control diario")],
             [tc("Lun 6 jul"),
-             tc("Repo final + HERMES_CONTEXT.md · entrega antes de medianoche"),
-             tc("Repo final + HERMES_CONTEXT.md · entrega antes de medianoche")],
+             tc("Repo final + SOUL.md · entrega antes de medianoche"),
+             tc("Repo final + SOUL.md · entrega antes de medianoche")],
             [tc("Mar 7 jul"),
              tc("Demo 5–7 min + cata por grupos · evaluación final"),
              tc("Demo 5–7 min + cata por grupos · evaluación final")],
@@ -452,7 +452,7 @@ def build():
 
     # ── Entregables ──────────────────────────────────────────────────────────
     story += [h1("Entregables de ambos tracks"), sp(0.2),
-              b("<b>HERMES_CONTEXT.md</b> (obligatorio, tan importante como el código)"),
+              b("<b>SOUL.md</b> (obligatorio, tan importante como el código)"),
               sp(0.15), h3("Track DEV:")]
     for item in [
         "Qué construiste y qué problema resuelve",
@@ -482,7 +482,7 @@ def build():
     tbl_crit = Table(
         [
             ["Dimensión", "Peso"],
-            ["Calidad del HERMES_CONTEXT.md y trazabilidad del proceso", "25%"],
+            ["Calidad del SOUL.md y trazabilidad del proceso", "25%"],
             ["Autonomía: investigó y desbloqueó por cuenta propia", "25%"],
             ["Orquestación de IA: claridad de specs, iteración, manejo de contexto", "18%"],
             ["Funcionalidad E2E (DEV) / Cobertura y profundidad (QA)", "14%"],

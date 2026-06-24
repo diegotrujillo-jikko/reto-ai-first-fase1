@@ -43,13 +43,13 @@ This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation 
 
 **Track QA** — design and execute a full test strategy on `3-challenge/gestor-inventario` (the SUT in this repo) in 4 days, using Hermes as the main agent and one or more LLMs of choice. No manual scripts. Goal is NOT to modify the app — test it.
 
-Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday of the reto week.
+Both tracks deliver: repo + `SOUL.md` + 5–7 min demo on Friday of the reto week.
 
 ## Track DEV — Deliverables
 
 | File | Purpose |
 |------|---------|
-| `HERMES_CONTEXT.md` | Process log: scope, tooling, AI usage, decisions, blockers |
+| `SOUL.md` | Process log: scope, tooling, AI usage, decisions, blockers |
 | Working app | Backend + frontend + DB + at least one external integration, runnable locally |
 | README | How to run, architecture overview, use case description |
 
@@ -140,7 +140,7 @@ Recommended tools: **Playwright** for E2E/UI, **pytest + httpx** for API.
 
 | File | Purpose |
 |------|---------|
-| `HERMES_CONTEXT.md` | Process log: scope, tooling, AI usage, decisions, findings, blockers |
+| `SOUL.md` | Process log: scope, tooling, AI usage, decisions, findings, blockers |
 | Test plan doc | Strategy, scope, risks, acceptance criteria |
 | Test cases | Happy path + edge + negative, documented |
 | Automated E2E suite | Playwright or equivalent, runnable against localhost:8000 |

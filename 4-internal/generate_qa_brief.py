@@ -224,7 +224,7 @@ def build():
     tbl_del = Table(
         [
             ["Entregable", "Descripcion"],
-            ["HERMES_CONTEXT.md",
+            ["SOUL.md",
              "Log del proceso: scope, tooling, decisiones de estrategia, hallazgos, blockers"],
             ["Plan de pruebas",
              "Estrategia, alcance, riesgos, criterios de aceptacion"],
@@ -243,7 +243,7 @@ def build():
     story += [tbl_del, sp(0.3)]
 
     story += [
-        Paragraph("Plantilla del entregable HERMES_CONTEXT.md", S["h2"]),
+        Paragraph("Plantilla del entregable SOUL.md", S["h2"]),
     ]
     for item in [
         "Proyecto: que app probaste y cual fue tu estrategia de cobertura",
@@ -329,7 +329,7 @@ def build():
         sp(0.2),
     ]
     for item in [
-        "La calidad de tu HERMES_CONTEXT.md y la trazabilidad de tu proceso",
+        "La calidad de tu SOUL.md y la trazabilidad de tu proceso",
         "Tu autonomia: como investigaste y resolviste bloqueos por tu cuenta",
         "La profundidad de cobertura: no solo happy path — edge cases, negativos, integridad de datos",
         "Los defectos encontrados y la calidad de su documentacion (severidad, repro, evidencia)",

@@ -186,12 +186,12 @@ def build():
         h1("5. Qué debes entregar"),
         sp(0.4),
         n(1, "Repositorio (GitHub público o GitLab) con el proyecto funcional."),
-        n(2, "Contexto de Hermes en un archivo <b>HERMES_CONTEXT.md</b> — el resumen "
+        n(2, "Contexto de Hermes en un archivo <b>SOUL.md</b> — el resumen "
            "contextual de tu trabajo con Hermes (plantilla abajo). Este archivo es tan "
            "importante como el código: es la evidencia de cómo construiste."),
         n(3, "Demo corta (5–7 min) el viernes de la semana del reto."),
         sp(0.3),
-        Paragraph("Plantilla del entregable HERMES_CONTEXT.md", S["h2"]),
+        Paragraph("Plantilla del entregable SOUL.md", S["h2"]),
     ]
     for item in [
         "Proyecto: qué construiste y qué problema resuelve",
@@ -292,7 +292,7 @@ def build():
         sp(0.2),
     ]
     for item in [
-        "La calidad de tu HERMES_CONTEXT.md y la trazabilidad de tu proceso",
+        "La calidad de tu SOUL.md y la trazabilidad de tu proceso",
         "Tu autonomía: cómo investigaste y resolviste bloqueos por tu cuenta",
         "Qué tan bien orquestaste la IA (claridad de tus specs, iteración, contexto)",
         "Que el producto funcione end-to-end: auth + browse de convocatorias desde datos.gov.co + bookmarks persistidos en DB",
