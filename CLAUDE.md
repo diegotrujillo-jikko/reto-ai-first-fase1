@@ -12,7 +12,8 @@ This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation 
   1b-guia-ai-hermes-claude.pdf      # Hermes + Claude tool reference
 
 2-workshops/
-  guia-personal-workshops-1-2.md   # Personal guide — summary of workshops 1 and 2
+  guia-personal-workshops-1-2.md   # Personal guide — workshops 1 & 2 (Claude Code + Spec Engineering)
+  guia-personal-workshops-3-4.md   # Personal guide — workshops 3 & 4 (CLAUDE.md + Plan & Loop + MCP)
 
 3-challenge/
   2a-reto-ai-first-fase1.pdf        # Reto brief — Track DEV

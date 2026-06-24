@@ -13,7 +13,8 @@ Este repositorio contiene el **Reto AI-First · Fase 1**, que comprende dos trac
   1b-guia-ai-hermes-claude.pdf      # Guía de uso de Hermes + Claude (referencia de herramientas)
 
 2-workshops/
-  guia-personal-workshops-1-2.md   # Guía personal — resumen de workshops 1 y 2
+  guia-personal-workshops-1-2.md   # Guía personal — workshops 1 y 2 (Claude Code + Spec Engineering)
+  guia-personal-workshops-3-4.md   # Guía personal — workshops 3 y 4 (CLAUDE.md + Plan & Loop + MCP)
 
 3-challenge/
   2a-reto-ai-first-fase1.pdf        # Brief del Reto — Track DEV
