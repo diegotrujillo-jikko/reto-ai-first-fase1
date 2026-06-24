@@ -234,8 +234,7 @@ def build():
               b(f"Hermes como intermediario obligatorio: toda interacción con modelos pasa por aquí. "
                 f"Libertad de elegir uno o varios LLMs para codificar o implementar "
                 f"(ej: Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.)."),
-              sp(0.2),
-              h3("Referencia de comandos Hermes:")]
+              sp(0.2)]
 
     tc_hdr_w1 = ParagraphStyle("tc_hdr_w1", fontName="DejaVu-Bold", fontSize=8.5,
                                 textColor=WHITE, leading=13)
@@ -256,7 +255,7 @@ def build():
         colWidths=[5.5 * cm, W - 5.5 * cm],
     )
     tbl_hermes.setStyle(tbl_style(header_bg=colors.HexColor("#00838F"), alt=TEAL_LIGHT))
-    story += [sp(0.1), tbl_hermes, sp(0.3),
+    story += [KeepTogether([h3("Referencia de comandos Hermes:"), sp(0.1), tbl_hermes]), sp(0.3),
               h2("Workshop 2 — Spec Engineering · Miércoles 24 jun, tarde (1–1.5 hrs)"),
               b("Por qué la calidad de la spec supera la elección del modelo."),
               b("La matriz real: 3 niveles de spec × 7 modelos — caso de estudio extraído del "
@@ -336,8 +335,8 @@ def build():
         colWidths=[4 * cm, W - 4 * cm],
     )
     tbl5.setStyle(tbl_style(header_bg=colors.HexColor("#00838F"), alt=TEAL_LIGHT))
-    story += [sp(0.1), tbl5, sp(0.2),
-              b("Demostración completa: /init → /plan → build con skills apropiados."),
+    story += [KeepTogether([sp(0.1), tbl5, sp(0.2),
+              b("Demostración completa: /init → /plan → build con skills apropiados.")]),
               sp(0.3),
               b("MCP Servers: Figma como fuente de diseño leíble por IA · Azure DevOps WI como PRD "
                 "· claude-mem para memoria persistente entre sesiones."),
@@ -386,14 +385,14 @@ def build():
     story.append(sp(0.3))
 
     # Track QA
-    story += [
+    story += [KeepTogether([
         h2("Track QA — Diseña y ejecuta una estrategia de pruebas"),
         p(f"<b>Misión:</b> En 4 días, diseñar, automatizar y ejecutar una estrategia de pruebas "
           f"E2E sobre la aplicación base provista (<i>mini-tienda-base</i>), sin escribir "
           f"scripts a mano. Se usa {LLM_NOTE}."),
         sp(0.15),
         h3("Requisitos mínimos de entrega:"),
-    ]
+    ])]
     tbl_qa = Table(
         [
             ["Componente", "Requisito"],
