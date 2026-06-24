@@ -75,7 +75,7 @@ hermes config list    # ver todas las claves de configuración aceptadas
 - Interactivo (`hermes`): el agente pide confirmación antes de ejecutar
 - Autónomo (`hermes --auto`): ejecuta sin confirmar — usar solo en ramas desechables
 
-### Videos y recursos
+### Recursos
 
 - **Claude Code docs** — quickstart oficial: https://code.claude.com/docs/en/overview
 - **Claude Code slash commands** — referencia completa de comandos: https://docs.anthropic.com/en/docs/claude-code/slash-commands
@@ -146,7 +146,7 @@ que cualquier presentación.
 Si el output no es lo que esperabas, antes de cambiar de modelo: agrega
 el punto del checklist que falta. Casi siempre es el 4, 5 o 7.
 
-### Videos y recursos
+### Recursos
 
 - **Prompt engineering guide** (Anthropic): https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview
 - **Tutorial interactivo** (Jupyter notebooks): https://github.com/anthropics/prompt-eng-interactive-tutorial
