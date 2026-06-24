@@ -31,15 +31,14 @@ Ambos tracks tienen 4 días de ejecución (26 jun → 4 jul) y entregan: repo + 
 
 ### Track DEV
 
-Implementar una app completa con Hermes como orquestador y LLMs de tu elección para la implementación. Sin código manual.
+Implementar el **Portal de Convocatorias Públicas** con Hermes como orquestador y LLMs de tu elección. Sin código manual.
 
 **Requisitos:**
-- Backend con API REST o GraphQL
+- Autenticación (registro / login con JWT)
+- Backend REST — búsqueda, filtros, bookmarks
 - Frontend web funcional
-- Base de datos (SQLite o PostgreSQL)
-- Al menos una integración externa (ej. datos.gov.co)
-- Autenticación de usuarios
-- Caso de uso comercial libre — cualquier dominio excepto SILIN
+- Base de datos (SQLite o PostgreSQL) — usuarios, bookmarks, búsquedas guardadas
+- Integración con **datos.gov.co SECOP** — consulta en vivo de convocatorias públicas colombianas
 
 **Entregables:**
 

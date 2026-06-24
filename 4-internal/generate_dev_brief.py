@@ -102,7 +102,7 @@ def build():
         sp(1.0),
         Paragraph("Reto AI-First · Fase 1", S["title"]),
         sp(0.4),
-        Paragraph("Implementa una app con la misma estructura que gestor-inventario — sin escribir código manualmente", S["subtitle"]),
+        Paragraph("Construye el Portal de Convocatorias Públicas — sin escribir código manualmente", S["subtitle"]),
         Paragraph("Track DEV · Preparado por Diego Trujillo · diego.trujillo@jikkosoft.com · Jikkosoft", S["subtitle"]),
         sp(0.8),
         hr(),
@@ -126,40 +126,45 @@ def build():
     story += [
         h1("2. El reto en una frase"),
         sp(0.4),
-        p(f"En 4 días, implementa una app con la <b>misma estructura que gestor-inventario</b> "
-          f"— frontend, backend, base de datos e integración — sobre un caso de uso comercial "
-          f"distinto a SILIN, sin escribir código a mano: todo se "
-          f"genera y se itera a través de {LLM_NOTE}."),
+        p(f"En 4 días, implementa el <b>Portal de Convocatorias Públicas</b> — una app con "
+          f"autenticación, backend, base de datos e integración con datos.gov.co — "
+          f"sin escribir código a mano: todo se genera y se itera a través de {LLM_NOTE}."),
         sp(0.5),
     ]
 
     # ── 3. Qué debes construir ───────────────────────────────────────────────
     story += [
-        h1("3. Qué debes construir"),
+        h1("3. Qué debes construir — Portal de Convocatorias Públicas"),
         sp(0.4),
-        p("La idea es tuya: una necesidad real, un caso de uso comercial, una herramienta "
-          "interna… lo que se te ocurra, siempre que sea <b>distinto a SILIN</b>."),
-        p("Sea cual sea la idea, el producto debe incluir obligatoriamente los mismos "
-          "componentes que gestor-inventario:"),
+        p("Un portal donde usuarios registrados pueden explorar, filtrar y guardar "
+          "convocatorias públicas colombianas. La fuente de datos es la API abierta de "
+          "<b>datos.gov.co</b> (SECOP — Sistema Electrónico para la Contratación Pública). "
+          "El dominio es fijo para todos — la diferencia la hace la calidad de tu implementación "
+          "y la profundidad de tu spec."),
         sp(0.2),
     ]
     tbl_comp = Table(
         [
             ["Componente", "Requisito mínimo"],
+            ["Autenticación",
+             "Registro e inicio de sesión con JWT — usuarios tienen perfil propio"],
             ["Backend",
-             "Servicio con lógica de negocio y API REST"],
+             "API REST con lógica de negocio: búsqueda, filtros, gestión de bookmarks"],
             ["Frontend",
-             "Interfaz web funcional (equivalente a static/index.html de gestor-inventario)"],
+             "Interfaz web funcional: browse de convocatorias, guardar favoritos, perfil"],
             ["Base de datos",
-             "PostgreSQL, SQLite, MongoDB o la de tu preferencia"],
+             "PostgreSQL o SQLite — tablas: usuarios, bookmarks, búsquedas guardadas"],
             ["Integración",
-             "Al menos una integración (API externa, webhook, servicio de terceros, "
-             "o entre tus propios módulos)"],
+             "datos.gov.co SECOP — consulta en vivo de convocatorias por entidad, fecha y estado"],
         ],
         colWidths=[3.5 * cm, W - 3.5 * cm],
     )
     tbl_comp.setStyle(tbl_style())
-    story += [tbl_comp, sp(0.5)]
+    story += [tbl_comp, sp(0.3),
+              p("El endpoint base de datos.gov.co usa el protocolo Socrata Open Data API (SODA). "
+                "Ejemplo: <font color='#0066CC'>https://www.datos.gov.co/resource/p6dx-8zbt.json</font> "
+                "(SECOP I — contratos y convocatorias). No requiere API key para consultas básicas."),
+              sp(0.3)]
 
     # ── 4. Reglas del juego ──────────────────────────────────────────────────
     story += [
@@ -169,7 +174,8 @@ def build():
            "especificar, dirigir, revisar e iterar."),
         n(2, f"{LLM_NOTE} — obligatorio e innegociable. Toda interacción con modelos "
            f"(generación, consulta, refactor) pasa a través de Hermes."),
-        n(3, "Tu repo, tu casa. Sube el código a GitHub público o GitLab, donde prefieras."),
+        n(3, "Tu repo, tu casa. Sube el código a GitHub público o GitLab. El dominio es fijo "
+           "(Portal de Convocatorias) — la diferencia la hace la profundidad de tu implementación."),
         n(4, "Provee tu acceso a modelos. Necesitarás un proveedor LLM conectado a Hermes "
            "(OpenAI, Anthropic, etc.). Ver punto 7 sobre créditos."),
         sp(0.5),
@@ -289,7 +295,7 @@ def build():
         "La calidad de tu HERMES_CONTEXT.md y la trazabilidad de tu proceso",
         "Tu autonomía: cómo investigaste y resolviste bloqueos por tu cuenta",
         "Qué tan bien orquestaste la IA (claridad de tus specs, iteración, contexto)",
-        "Que el producto funcione end-to-end con todos sus componentes (igual que gestor-inventario: frontend + backend + DB + integración)",
+        "Que el producto funcione end-to-end: auth + browse de convocatorias desde datos.gov.co + bookmarks persistidos en DB",
         "Tu previsión y comunicación a tiempo",
     ]:
         story.append(b(item))

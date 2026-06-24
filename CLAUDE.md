@@ -39,7 +39,7 @@ This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation 
 
 ### Two tracks in Week 4
 
-**Track DEV** — implement an app (frontend + backend + DB + external integration) in 4 days, using Hermes as the main agent and one or more LLMs of choice (e.g., Claude Sonnet, Haiku, Opus, DeepSeek, Kimi K2, etc.). Free commercial use case — any domain except SILIN. No manual code.
+**Track DEV** — implement the **Portal de Convocatorias Públicas** (auth + backend + DB + datos.gov.co integration) in 4 days, using Hermes as the main agent and one or more LLMs of choice (e.g., Claude Sonnet, Haiku, Opus, DeepSeek, Kimi K2, etc.). No manual code.
 
 **Track QA** — design and execute a full test strategy on `3-challenge/gestor-inventario` (the SUT in this repo) in 4 days, using Hermes as the main agent and one or more LLMs of choice. No manual scripts. Goal is NOT to modify the app — test it.
 
@@ -53,7 +53,7 @@ Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday of th
 | Working app | Backend + frontend + DB + at least one external integration, runnable locally |
 | README | How to run, architecture overview, use case description |
 
-The product must have the same structure as `3-challenge/gestor-inventario` (frontend + backend + DB + integration) on a free commercial domain — any except SILIN. Evaluated on: AI-first workflow adherence, product coherence, and working demo.
+The product is the **Portal de Convocatorias Públicas**: auth (JWT) + REST backend + frontend + SQLite/PostgreSQL + datos.gov.co SECOP integration. Domain is fixed for all participants. Evaluated on: AI-first workflow adherence, spec quality, product coherence, and working demo.
 
 ## Track QA — SUT Reference
 
