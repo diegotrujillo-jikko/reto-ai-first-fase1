@@ -137,6 +137,48 @@ Spec C (~480 palabras) + Haiku 4.5  → 88 pts
 **Conclusión:** mejorar la spec es 3× más barato y efectivo que subir de modelo.
 El punto de equilibrio costo/calidad: **Spec B + Sonnet**.
 
+### Cómo reproducir el experimento (sin W&B)
+
+W&B es solo visualización — el experimento funciona sin él. Solo necesitas Hermes + `ANTHROPIC_API_KEY`.
+
+```bash
+# 1. Clonar
+git clone https://github.com/diegotrujillo-jikko/hermes-exploratory
+cd hermes-exploratory
+
+# 2. Secrets (solo Anthropic, omitir WANDB_API_KEY)
+cp .env.example .env
+# editar .env: llenar solo ANTHROPIC_API_KEY
+
+# 3. Python deps (sin wandb)
+python3 -m venv .venv && source .venv/bin/activate
+pip install python-dotenv
+```
+
+Para cada spec (`a`, `b`, `c`), generar el SQL con Hermes:
+
+```bash
+hermes
+/model anthropic:claude-sonnet-4-6
+/new
+# pegar contenido de phase-1/01-specs/spec_a.md y pedir:
+# "Generate the PostgreSQL schema. Output only SQL — no prose, no fences."
+# guardar respuesta en phase-1/02-outputs/r1_sonnet_a.sql
+```
+
+Registrar sin subir a W&B:
+
+```bash
+python phase-1/scripts/log_run.py \
+  --round 1 --model sonnet-4-6 --spec a \
+  --output phase-1/02-outputs/r1_sonnet_a.sql \
+  --no-wandb
+```
+
+Resultados en `phase-1/03-analysis/runs.jsonl`. Repetir para specs `b` y `c`, luego
+con Haiku y Opus para ver la matriz completa. Análisis final en
+`phase-1/03-analysis/ANALYSIS.md`.
+
 ### Los 3 niveles de spec
 
 | Nivel | Tamaño aprox. | Resultado típico |
