@@ -18,7 +18,7 @@ This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation 
 3-challenge/
   2a-reto-ai-first-fase1.pdf        # Reto brief — Track DEV
   2b-reto-ai-first-fase1-qa.pdf     # Reto brief — Track QA
-  mini-tienda-base/                 # SUT for Track QA
+  gestor-inventario/                # SUT for Track QA
 
 4-internal/                           # Restricted (git-crypt)
   reto-ai-first-fase1-evaluacion-interna.pdf
@@ -39,9 +39,9 @@ This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation 
 
 ### Two tracks in Week 4
 
-**Track DEV** — implement an app with the same structure as `3-challenge/mini-tienda-base` (frontend + backend + DB + integration) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). Free commercial use case — any domain except SILIN and except mini-tienda itself. No manual code.
+**Track DEV** — implement an app (frontend + backend + DB + external integration) in 4 days, using Hermes as the main agent and one or more LLMs of choice (e.g., Claude Sonnet, Haiku, Opus, DeepSeek, Kimi K2, etc.). Free commercial use case — any domain except SILIN. No manual code.
 
-**Track QA** — design and execute a full test strategy on `3-challenge/mini-tienda-base` (the SUT in this repo) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). No manual scripts. Goal is NOT to modify the app — test it.
+**Track QA** — design and execute a full test strategy on `3-challenge/gestor-inventario` (the SUT in this repo) in 4 days, using Hermes as the main agent and one or more LLMs of choice. No manual scripts. Goal is NOT to modify the app — test it.
 
 Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday of the reto week.
 
@@ -53,26 +53,26 @@ Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday of th
 | Working app | Backend + frontend + DB + at least one external integration, runnable locally |
 | README | How to run, architecture overview, use case description |
 
-The product must mirror `3-challenge/mini-tienda-base` structure (frontend + backend + DB + integration) on a free commercial domain — any except SILIN and mini-tienda. Evaluated on: AI-first workflow adherence, product coherence, and working demo.
+The product must have the same structure as `3-challenge/gestor-inventario` (frontend + backend + DB + integration) on a free commercial domain — any except SILIN. Evaluated on: AI-first workflow adherence, product coherence, and working demo.
 
 ## Track QA — SUT Reference
 
-> Everything below applies to the QA track. The SUT (`3-challenge/mini-tienda-base`) is the system to test, not to modify.
+> Everything below applies to the QA track. The SUT (`3-challenge/gestor-inventario`) is the system to test, not to modify.
 
 ## Running the SUT (System Under Test)
 
 ```bash
 # Docker (recommended)
-cd 3-challenge/mini-tienda-base
+cd 3-challenge/gestor-inventario
 docker compose up --build
 
 # Python local
-cd 3-challenge/mini-tienda-base
+cd 3-challenge/gestor-inventario
 pip install -r requirements.txt
 uvicorn app:app --port 8000
 
-# Simulate pricing service failure
-PRICING_FAIL=1 uvicorn app:app --port 8000
+# Simulate alert service failure
+ALERTS_FAIL=1 uvicorn app:app --port 8000
 
 # Use a separate DB for tests (avoid polluting dev data)
 DB_PATH=test.db uvicorn app:app --port 8001
@@ -87,18 +87,18 @@ All monetary amounts are in **centavos** (integer cents).
 | Method | Route | Notes |
 |--------|-------|-------|
 | GET | `/api/health` | Returns `{"status": "ok"}` |
-| GET | `/api/products` | List all products |
+| GET | `/api/suppliers` | List all active suppliers |
+| GET | `/api/products` | List all active products |
 | GET | `/api/products/{id}` | 404 if not found |
-| GET | `/api/pricing/quote?subtotal_cents=N&country=XX` | 503 if `PRICING_FAIL=1` |
-| POST | `/api/orders` | Body: `{country, items: [{product_id, qty}]}`. 201 on success, 400/409/503 on error |
-| GET | `/api/orders/{id}` | Includes nested `items` array |
-
-Tax rates: `CO` → 19%, `US` → 0%, any other → 10%. Tax computed as `int(subtotal * rate)` (truncates, does not round).
+| POST | `/api/products` | Body: `{name, sku, cost_cents, price_cents, stock, min_stock, supplier_id}`. 201 on success, 409 if SKU exists |
+| POST | `/api/stock/movement` | Body: `{product_id, type: "IN"\|"OUT", qty, notes}`. 201 on success, 503 if `ALERTS_FAIL=1` and type=OUT |
+| GET | `/api/stock/alerts` | Products where `stock <= min_stock`. 503 if `ALERTS_FAIL=1` |
+| GET | `/api/movements` | All stock movements, newest first |
 
 ## Architecture of the SUT
 
 ```
-3-challenge/mini-tienda-base/
+3-challenge/gestor-inventario/
   app.py          # Single-file FastAPI backend — all routes, DB, and business logic
   static/
     index.html    # Single-page frontend (vanilla JS, no build step)
@@ -107,19 +107,22 @@ Tax rates: `CO` → 19%, `US` → 0%, any other → 10%. Tax computed as `int(su
   docker-compose.yml
 ```
 
-SQLite DB (`minitienda.db`) is created and seeded on first startup. The `DB_PATH` env var controls the DB file location — use a separate file for test isolation.
+SQLite DB (`inventario.db`) is created and seeded on first startup. The `DB_PATH` env var controls the DB file location — use a separate file for test isolation.
 
-The "pricing service" is an internal function (`price_quote`) — not an external HTTP call. It is toggled via `PRICING_FAIL=1`.
+The "alert service" is an internal function (`alert_service`) — not an external HTTP call. It is toggled via `ALERTS_FAIL=1`.
+
+Seed data: 3 suppliers, 6 products (office supplies domain).
 
 ## Known Defects (Ground Truth — Internal)
 
 These are intentional weaknesses planted in the SUT for evaluation depth:
 
-1. **No qty validation** — `qty=0` or `qty=-1` is accepted; negative qty inflates stock and produces negative totals.
-2. **Tax truncation** — uses `int()` instead of `round()`; e.g., 10% of 1005 → 100 instead of 101.
-3. **Country case-sensitive** — `country="co"` (lowercase) falls through to 10% default instead of 19%.
+1. **Negative stock allowed** — `POST /api/stock/movement` with `type=OUT` and `qty > current stock` is accepted; stock goes negative.
+2. **Decimal qty accepted** — `qty` field in `StockMovementIn` is `float`, not `int`; `qty=2.5` is accepted and stored.
+3. **No min_stock constraint** — `POST /api/products` accepts `min_stock=-1`; alerts for that product never trigger.
+4. **No cost_cents constraint** — `POST /api/products` accepts `cost_cents=-1000`; negative cost stored without error.
 
-Good test coverage should catch at minimum defects 1 and 3. The `PRICING_FAIL=1` 503 scenario is also expected.
+Good test coverage should catch at minimum defects 1 and 2. The `ALERTS_FAIL=1` 503 scenario is also expected.
 
 ## Test Strategy Scope
 
@@ -127,9 +130,9 @@ Tests must cover all these dimensions:
 
 - **API contract** — HTTP status codes, required response fields, error shapes
 - **Functional** — happy path, edge cases, negative cases for every endpoint
-- **Data integrity** — stock is decremented correctly after order; order totals match arithmetic
-- **Integration failure** — `PRICING_FAIL=1` yields 503 on both `/api/pricing/quote` and `POST /api/orders`
-- **UI / E2E** — purchase flow via the frontend
+- **Data integrity** — stock is decremented/incremented correctly after movements; values match arithmetic
+- **Integration failure** — `ALERTS_FAIL=1` yields 503 on `/api/stock/alerts` and `POST /api/stock/movement` (type=OUT)
+- **UI / E2E** — movement registration and alert consultation flow via the frontend
 
 Recommended tools: **Playwright** for E2E/UI, **pytest + httpx** for API.
 
