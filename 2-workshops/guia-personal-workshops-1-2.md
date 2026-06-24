@@ -137,6 +137,32 @@ Spec C (~480 palabras) + Haiku 4.5  → 88 pts
 **Conclusión:** mejorar la spec es 3× más barato y efectivo que subir de modelo.
 El punto de equilibrio costo/calidad: **Spec B + Sonnet**.
 
+### Cómo escribir tus propios specs (Opción B)
+
+**Herramienta: Hermes** — describes tu dominio, Hermes genera las 3 versiones.
+Usar la IA para escribir la spec que luego evalúa la IA es exactamente el punto del workshop.
+
+En Hermes, con este prompt:
+
+```
+Tengo un sistema de [describe tu dominio en 2-3 oraciones: qué hace, qué entidades
+maneja, qué stack usa].
+
+Genera 3 versiones de spec para el mismo schema PostgreSQL:
+- Spec A (~150 palabras): solo overview + tech stack
+- Spec B (~480 palabras): agrega convenciones de naming, tipos de datos exactos,
+  reglas de integridad (soft delete, FKs, constraints), fuera de scope
+- Spec C (~900 palabras): Spec B + ejemplos de queries que deben funcionar + casos de borde
+
+Formato: un bloque markdown por spec, sin SQL, solo la descripción.
+```
+
+Guardar cada respuesta como `phase-1/01-specs/spec_a.md`, `spec_b.md`, `spec_c.md`
+(reemplazar los del repo) y correr el experimento con tu dominio real.
+
+> El "aha moment" ocurre en el paso Spec A → Spec B: el modelo deja de alucinar
+> nombres de tablas y constraints porque ya los describiste explícitamente.
+
 ### Cómo reproducir el experimento (sin W&B)
 
 W&B es solo visualización — el experimento funciona sin él. Solo necesitas Hermes + `ANTHROPIC_API_KEY`.
@@ -178,32 +204,6 @@ python phase-1/scripts/log_run.py \
 Resultados en `phase-1/03-analysis/runs.jsonl`. Repetir para specs `b` y `c`, luego
 con Haiku y Opus para ver la matriz completa. Análisis final en
 `phase-1/03-analysis/ANALYSIS.md`.
-
-### Cómo escribir tus propios specs (Opción B)
-
-**Herramienta: Hermes** — describes tu dominio, Hermes genera las 3 versiones.
-Usar la IA para escribir la spec que luego evalúa la IA es exactamente el punto del workshop.
-
-En Hermes, con este prompt:
-
-```
-Tengo un sistema de [describe tu dominio en 2-3 oraciones: qué hace, qué entidades
-maneja, qué stack usa].
-
-Genera 3 versiones de spec para el mismo schema PostgreSQL:
-- Spec A (~150 palabras): solo overview + tech stack
-- Spec B (~480 palabras): agrega convenciones de naming, tipos de datos exactos,
-  reglas de integridad (soft delete, FKs, constraints), fuera de scope
-- Spec C (~900 palabras): Spec B + ejemplos de queries que deben funcionar + casos de borde
-
-Formato: un bloque markdown por spec, sin SQL, solo la descripción.
-```
-
-Guardar cada respuesta como `phase-1/01-specs/spec_a.md`, `spec_b.md`, `spec_c.md`
-(reemplazar los del repo) y correr el experimento con tu dominio real.
-
-> El "aha moment" ocurre en el paso Spec A → Spec B: el modelo deja de alucinar
-> nombres de tablas y constraints porque ya los describiste explícitamente.
 
 ### Los 3 niveles de spec
 
