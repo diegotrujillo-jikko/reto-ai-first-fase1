@@ -198,10 +198,13 @@ el punto del checklist que falta. Casi siempre es el 4, 5 o 7.
 
 ```
 1. Instala: Claude Code + Hermes
-2. En cada repo nuevo: claude /init  →  expande el CLAUDE.md generado
-3. Antes de pedir cualquier cosa al modelo: escribe la spec (mínimo Spec B)
-4. Si el output es malo: mejora la spec, no cambies el modelo
-5. Usa Hermes como entrada única — él elige el modelo correcto
+2. Configura API keys en ~/.zshrc → export ANTHROPIC_API_KEY="sk-ant-..."
+3. hermes setup  →  hermes doctor  →  verde en todos los proveedores
+4. hermes model  →  elige el modelo implementador (Sonnet para balance, Haiku para volumen)
+5. En cada repo nuevo: claude /init  →  expande el CLAUDE.md generado
+6. Antes de pedir cualquier cosa al modelo: escribe la spec (mínimo Spec B)
+7. Si el output es malo: mejora la spec, no cambies el modelo
+8. Usa Hermes como entrada única — cambia de modelo mid-sesión sin perder contexto
 ```
 
 ---
