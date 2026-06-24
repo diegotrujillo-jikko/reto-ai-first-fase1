@@ -6,10 +6,13 @@
 
 ## El cambio de paradigma
 
-Antes de esto pensaba en IA como "autocompletado avanzado". Lo que cambió:
-el modelo no es el protagonista, **la spec sí lo es**. El mejor modelo con una
-spec mala produce basura. El modelo más barato con una spec bien escrita produce
-output de producción. Eso lo confirma el experimento interno `hermes-exploratory`.
+Llevaba usando Copilot y ChatGPT como aceleradores de escritura — útiles,
+pero esencialmente glorificados snippets con contexto limitado. El cambio real
+no fue el modelo: fue entender que el cuello de botella siempre estuvo del lado
+del input, no del output. **El modelo no es el protagonista, la spec sí lo es.**
+El mejor modelo con una spec mala produce basura. El modelo más barato con una
+spec bien escrita produce output de producción. Eso lo confirma el experimento
+interno `hermes-exploratory`.
 
 ---
 
@@ -74,8 +77,8 @@ hermes config list    # ver todas las claves de configuración aceptadas
 
 ### Videos y recursos
 
-- **Anthropic YouTube** — tutoriales y demos de Claude Code: https://www.youtube.com/@Anthropic
 - **Claude Code docs** — quickstart oficial: https://code.claude.com/docs/en/overview
+- **Claude Code slash commands** — referencia completa de comandos: https://docs.anthropic.com/en/docs/claude-code/slash-commands
 - **Repositorio Hermes**: https://github.com/NousResearch/hermes-agent
 
 ---
