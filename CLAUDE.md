@@ -7,16 +7,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation course followed by the Reto Fase 1.
 
 ```
-docs/
+1-docs/
   1a-guia-ai-first.pdf              # Program guide — course overview and structure
   1b-guia-ai-hermes-claude.pdf      # Hermes + Claude tool reference
 
-challenge/
+3-challenge/
   2a-reto-ai-first-fase1.pdf        # Reto brief — Track DEV
   2b-reto-ai-first-fase1-qa.pdf     # Reto brief — Track QA
   mini-tienda-base/                 # SUT for Track QA
 
-internal/                           # Restricted (git-crypt)
+4-internal/                           # Restricted (git-crypt)
   reto-ai-first-fase1-evaluacion-interna.pdf
   generate_*.py
   STEPS.md · input_*.md
@@ -35,9 +35,9 @@ internal/                           # Restricted (git-crypt)
 
 ### Two tracks in Week 4
 
-**Track DEV** — implement an app with the same structure as `challenge/mini-tienda-base` (frontend + backend + DB + integration) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). Free commercial use case — any domain except SILIN and except mini-tienda itself. No manual code.
+**Track DEV** — implement an app with the same structure as `3-challenge/mini-tienda-base` (frontend + backend + DB + integration) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). Free commercial use case — any domain except SILIN and except mini-tienda itself. No manual code.
 
-**Track QA** — design and execute a full test strategy on `challenge/mini-tienda-base` (the SUT in this repo) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). No manual scripts. Goal is NOT to modify the app — test it.
+**Track QA** — design and execute a full test strategy on `3-challenge/mini-tienda-base` (the SUT in this repo) in 4 days, using Hermes as the main agent and one or more LLMs of choice for coding/implementation (e.g., Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.). No manual scripts. Goal is NOT to modify the app — test it.
 
 Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday of the reto week.
 
@@ -49,21 +49,21 @@ Both tracks deliver: repo + `HERMES_CONTEXT.md` + 5–7 min demo on Friday of th
 | Working app | Backend + frontend + DB + at least one external integration, runnable locally |
 | README | How to run, architecture overview, use case description |
 
-The product must mirror `challenge/mini-tienda-base` structure (frontend + backend + DB + integration) on a free commercial domain — any except SILIN and mini-tienda. Evaluated on: AI-first workflow adherence, product coherence, and working demo.
+The product must mirror `3-challenge/mini-tienda-base` structure (frontend + backend + DB + integration) on a free commercial domain — any except SILIN and mini-tienda. Evaluated on: AI-first workflow adherence, product coherence, and working demo.
 
 ## Track QA — SUT Reference
 
-> Everything below applies to the QA track. The SUT (`challenge/mini-tienda-base`) is the system to test, not to modify.
+> Everything below applies to the QA track. The SUT (`3-challenge/mini-tienda-base`) is the system to test, not to modify.
 
 ## Running the SUT (System Under Test)
 
 ```bash
 # Docker (recommended)
-cd challenge/mini-tienda-base
+cd 3-challenge/mini-tienda-base
 docker compose up --build
 
 # Python local
-cd challenge/mini-tienda-base
+cd 3-challenge/mini-tienda-base
 pip install -r requirements.txt
 uvicorn app:app --port 8000
 
@@ -94,7 +94,7 @@ Tax rates: `CO` → 19%, `US` → 0%, any other → 10%. Tax computed as `int(su
 ## Architecture of the SUT
 
 ```
-challenge/mini-tienda-base/
+3-challenge/mini-tienda-base/
   app.py          # Single-file FastAPI backend — all routes, DB, and business logic
   static/
     index.html    # Single-page frontend (vanilla JS, no build step)

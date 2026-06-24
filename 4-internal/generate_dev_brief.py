@@ -300,7 +300,7 @@ def build():
              "diego.trujillo@jikkosoft.com o Google Chat."),
     ]
 
-    out = "/Users/dorothy/Stuff/Jikkosoft/Code/ai/lab/reto-ai-first-fase1/challenge/2a-reto-ai-first-fase1.pdf"
+    out = "/Users/dorothy/Stuff/Jikkosoft/Code/ai/lab/reto-ai-first-fase1/3-challenge/2a-reto-ai-first-fase1.pdf"
     doc = SimpleDocTemplate(
         out, pagesize=A4,
         leftMargin=2 * cm, rightMargin=2 * cm,

@@ -2,22 +2,22 @@
 
 Este repositorio contiene el **Reto AI-First · Fase 1**, que comprende dos tracks paralelos:
 
-- **Track DEV** — implementar una app con la misma estructura que `challenge/mini-tienda-base` (frontend + backend + DB + integración) sobre un caso de uso comercial distinto a SILIN, sin escribir código manualmente, usando Hermes como agente principal y uno o varios LLMs de su preferencia para codificar o implementar (ej: Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.).
-- **Track QA** — diseñar y ejecutar una estrategia de pruebas completa sobre la **mini tienda full-stack** en `challenge/mini-tienda-base`, sin modificar la aplicación, usando Hermes como agente principal y uno o varios LLMs de su preferencia para codificar o implementar (ej: Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.).
+- **Track DEV** — implementar una app con la misma estructura que `3-challenge/mini-tienda-base` (frontend + backend + DB + integración) sobre un caso de uso comercial distinto a SILIN, sin escribir código manualmente, usando Hermes como agente principal y uno o varios LLMs de su preferencia para codificar o implementar (ej: Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.).
+- **Track QA** — diseñar y ejecutar una estrategia de pruebas completa sobre la **mini tienda full-stack** en `3-challenge/mini-tienda-base`, sin modificar la aplicación, usando Hermes como agente principal y uno o varios LLMs de su preferencia para codificar o implementar (ej: Claude Sonnet, Haiku, Opus, Codex, DeepSeek, Kimi K2, etc.).
 
 ## Estructura del repositorio
 
 ```
-docs/
+1-docs/
   1a-guia-ai-first.pdf              # Programa AI-First · Fase 1 — guía del curso completo
   1b-guia-ai-hermes-claude.pdf      # Guía de uso de Hermes + Claude (referencia de herramientas)
 
-challenge/
+3-challenge/
   2a-reto-ai-first-fase1.pdf        # Brief del Reto — Track DEV
   2b-reto-ai-first-fase1-qa.pdf     # Brief del Reto — Track QA
   mini-tienda-base/                 # SUT (System Under Test) para el Track QA
 
-internal/                           # Acceso restringido (git-crypt)
+4-internal/                           # Acceso restringido (git-crypt)
   reto-ai-first-fase1-evaluacion-interna.pdf
   STEPS.md
   input_*.md
@@ -30,7 +30,7 @@ Ambos tracks tienen 4 días de ejecución y entregan: repo + `HERMES_CONTEXT.md`
 
 ### Track DEV
 
-Implementar una app con la **misma estructura que `challenge/mini-tienda-base`** — frontend, backend, base de datos e integración — sobre un caso de uso comercial distinto a SILIN, sin escribir código manualmente. Se espera:
+Implementar una app con la **misma estructura que `3-challenge/mini-tienda-base`** — frontend, backend, base de datos e integración — sobre un caso de uso comercial distinto a SILIN, sin escribir código manualmente. Se espera:
 
 - Misma arquitectura de referencia: frontend web + backend con API + DB + al menos una integración.
 - Caso de uso libre (e-commerce, reservas, inventario, etc.) — distinto a SILIN y distinto a mini-tienda.
@@ -50,7 +50,7 @@ El foco es **probar** la mini tienda incluida en este repo, no modificarla. Se e
 
 ## MiniTienda Base App
 
-`challenge/mini-tienda-base/` es la aplicación de referencia que debes usar como base para el reto. Incluye:
+`3-challenge/mini-tienda-base/` es la aplicación de referencia que debes usar como base para el reto. Incluye:
 
 - Frontend web estático (`static/index.html`).
 - Backend Python con FastAPI (`app.py`).
@@ -83,14 +83,14 @@ El foco es **probar** la mini tienda incluida en este repo, no modificarla. Se e
 ### Opción A — Docker (recomendada)
 
 ```bash
-cd challenge/mini-tienda-base
+cd 3-challenge/mini-tienda-base
 docker compose up --build
 ```
 
 ### Opción B — Python local
 
 ```bash
-cd challenge/mini-tienda-base
+cd 3-challenge/mini-tienda-base
 pip install -r requirements.txt
 uvicorn app:app --port 8000
 ```
@@ -128,5 +128,5 @@ Se recomienda cubrir estos ámbitos:
 ## Notas adicionales
 
 - La aplicación base está diseñada para ser un **objetivo estable de evaluación**.
-- No se espera reescribir el core de `challenge/mini-tienda-base`; se espera probarlo.
-- Usa los documentos del reto en `challenge/` e `internal/` para orientar tu estrategia.
+- No se espera reescribir el core de `3-challenge/mini-tienda-base`; se espera probarlo.
+- Usa los documentos del reto en `3-challenge/` e `4-internal/` para orientar tu estrategia.

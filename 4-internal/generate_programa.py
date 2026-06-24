@@ -509,7 +509,7 @@ def build():
         note("Dudas durante el programa: canalízalas a Diego Trujillo — diego.trujillo@jikkosoft.com o Google Chat."),
     ]
 
-    out = "/Users/dorothy/Stuff/Jikkosoft/Code/ai/lab/reto-ai-first-fase1/docs/1a-guia-ai-first.pdf"
+    out = "/Users/dorothy/Stuff/Jikkosoft/Code/ai/lab/reto-ai-first-fase1/1-docs/1a-guia-ai-first.pdf"
     doc = SimpleDocTemplate(
         out, pagesize=A4,
         leftMargin=2 * cm, rightMargin=2 * cm,
