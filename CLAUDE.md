@@ -16,8 +16,8 @@ This repo supports the **Programa AI-First · Fase 1** — a 4-week preparation 
   guia-personal-workshops-3-4.md   # Personal guide — workshops 3 & 4 (CLAUDE.md + Plan & Loop + MCP)
 
 3-challenge/
-  2a-reto-ai-first-fase1.pdf        # Reto brief — Track DEV
-  2b-reto-ai-first-fase1-qa.pdf     # Reto brief — Track QA
+  2a-reto-ai-first-fase1.pdf        # Reto — Track DEV
+  2b-reto-ai-first-fase1-qa.pdf     # Reto — Track QA
   gestor-inventario/                # SUT for Track QA
 
 4-internal/                           # Restricted (git-crypt)

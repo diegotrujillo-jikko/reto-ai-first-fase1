@@ -1,4 +1,4 @@
-"""Generate 2a-reto-ai-first-fase1-brief.pdf using ReportLab + DejaVu Sans."""
+"""Generate 2a-reto-ai-first-fase1.pdf using ReportLab + DejaVu Sans."""
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_JUSTIFY, TA_LEFT, TA_CENTER
 from reportlab.lib.pagesizes import A4

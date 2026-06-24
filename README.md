@@ -14,8 +14,8 @@ Este repositorio contiene el **Reto AI-First · Fase 1** — dos tracks en paral
   guia-personal-workshops-3-4.md   # Guía personal — workshops 3 y 4 (CLAUDE.md + Plan & Loop + MCP)
 
 3-challenge/
-  2a-reto-ai-first-fase1.pdf        # Brief del Reto — Track DEV
-  2b-reto-ai-first-fase1-qa.pdf     # Brief del Reto — Track QA
+  2a-reto-ai-first-fase1.pdf        # Reto — Track DEV
+  2b-reto-ai-first-fase1-qa.pdf     # Reto — Track QA
   gestor-inventario/                # SUT (System Under Test) para el Track QA
 
 4-internal/                         # Acceso restringido (git-crypt)
@@ -126,5 +126,5 @@ DB_PATH=test.db uvicorn app:app --port 8001
 ## Notas
 
 - La app es un **objetivo estable de evaluación** — no se espera modificar su código.
-- Usa los briefs en `3-challenge/` para orientar tu estrategia.
+- Usa los documentos del reto en `3-challenge/` para orientar tu estrategia.
 - Hermes es el orquestador principal — todo via IA, sin scripts manuales.
