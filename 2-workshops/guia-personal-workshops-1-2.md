@@ -137,7 +137,7 @@ Spec C (~480 palabras) + Haiku 4.5  → 88 pts
 **Conclusión:** mejorar la spec es 3× más barato y efectivo que subir de modelo.
 El punto de equilibrio costo/calidad: **Spec B + Sonnet**.
 
-### Cómo escribir tus propios specs (Opción B)
+### Cómo escribir tus propios specs
 
 **Herramienta: Hermes** — describes tu dominio, Hermes genera las 3 versiones.
 Usar la IA para escribir la spec que luego evalúa la IA es exactamente el punto del workshop.
