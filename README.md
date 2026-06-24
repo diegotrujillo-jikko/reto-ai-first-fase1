@@ -12,12 +12,15 @@ Este repositorio contiene el **Reto AI-First · Fase 1**, que comprende dos trac
   1a-guia-ai-first.pdf              # Programa AI-First · Fase 1 — guía del curso completo
   1b-guia-ai-hermes-claude.pdf      # Guía de uso de Hermes + Claude (referencia de herramientas)
 
+2-workshops/
+  guia-personal-workshops-1-2.md   # Guía personal — resumen de workshops 1 y 2
+
 3-challenge/
   2a-reto-ai-first-fase1.pdf        # Brief del Reto — Track DEV
   2b-reto-ai-first-fase1-qa.pdf     # Brief del Reto — Track QA
   mini-tienda-base/                 # SUT (System Under Test) para el Track QA
 
-4-internal/                           # Acceso restringido (git-crypt)
+4-internal/                         # Acceso restringido (git-crypt)
   reto-ai-first-fase1-evaluacion-interna.pdf
   STEPS.md
   input_*.md
@@ -129,4 +132,4 @@ Se recomienda cubrir estos ámbitos:
 
 - La aplicación base está diseñada para ser un **objetivo estable de evaluación**.
 - No se espera reescribir el core de `3-challenge/mini-tienda-base`; se espera probarlo.
-- Usa los documentos del reto en `3-challenge/` e `4-internal/` para orientar tu estrategia.
+- Usa los documentos del reto en `3-challenge/` y `4-internal/` para orientar tu estrategia.
