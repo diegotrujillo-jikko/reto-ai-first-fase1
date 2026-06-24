@@ -247,6 +247,8 @@ el punto del checklist que falta. Casi siempre es el 4, 5 o 7.
 6. Antes de pedir cualquier cosa al modelo: escribe la spec (mínimo Spec B)
 7. Si el output es malo: mejora la spec, no cambies el modelo
 8. Usa Hermes como entrada única — cambia de modelo mid-sesión sin perder contexto
+9. Para validar spec depth: clonar hermes-exploratory → pip install python-dotenv →
+   correr rounds con --no-wandb → comparar runs.jsonl
 ```
 
 ---
