@@ -291,8 +291,8 @@ def build():
         colWidths=[4 * cm, 1.2 * cm, W - 5.2 * cm],
     )
     tbl_rubric.setStyle(tbl_style(header_bg=colors.HexColor("#00838F"), alt=TEAL_LIGHT))
-    story += [sp(0.25), h3("Rubric de evaluación de output (0–100):"),
-              sp(0.1), tbl_rubric, sp(0.15),
+    story += [sp(0.25), KeepTogether([h3("Rubric de evaluación de output (0–100):"),
+              sp(0.1), tbl_rubric]), sp(0.15),
               note("Regla práctica: score < 80 → la spec necesita más detalle, no un modelo más caro. "
                    "Referencia completa: github.com/diegotrujillo-jikko/hermes-exploratory"),
               sp(0.2),
@@ -374,15 +374,15 @@ def build():
         colWidths=[4 * cm, W - 4 * cm],
     )
     tbl_dev.setStyle(tbl_style())
-    story += [tbl_dev, sp(0.2), h3("Reglas:")]
+    dev_rules = [h3("Reglas:")]
     for i, r in enumerate([
         "Cero código manual — solo especificas, diriges, revisas e iteras.",
         f"{LLM_NOTE} — obligatorio e innegociable.",
         "Caso de uso libre — distinto a SILIN y distinto a mini-tienda.",
         "Repositorio público (GitHub o GitLab).",
     ], 1):
-        story.append(Paragraph(f"{i}. {r}", S["bullet"]))
-    story.append(sp(0.3))
+        dev_rules.append(Paragraph(f"{i}. {r}", S["bullet"]))
+    story += [tbl_dev, sp(0.2), KeepTogether(dev_rules), sp(0.3)]
 
     # Track QA
     story += [KeepTogether([
@@ -408,15 +408,15 @@ def build():
         colWidths=[5.5 * cm, W - 5.5 * cm],
     )
     tbl_qa.setStyle(tbl_style())
-    story += [tbl_qa, sp(0.2), h3("Reglas:")]
+    qa_rules = [h3("Reglas:")]
     for i, r in enumerate([
         "Cero scripts manuales — la IA los genera, tú especificas y revisas.",
         f"{LLM_NOTE} — obligatorio como agente principal.",
         "No modificar el código de producción del SUT.",
         "Repositorio público (GitHub o GitLab).",
     ], 1):
-        story.append(Paragraph(f"{i}. {r}", S["bullet"]))
-    story.append(sp(0.3))
+        qa_rules.append(Paragraph(f"{i}. {r}", S["bullet"]))
+    story += [tbl_qa, sp(0.2), KeepTogether(qa_rules), sp(0.3)]
 
     # ── Cronograma ───────────────────────────────────────────────────────────
     story += [PageBreak(), h1("Cronograma — Etapa 2 · Reto Fase 1"), sp(0.2)]
