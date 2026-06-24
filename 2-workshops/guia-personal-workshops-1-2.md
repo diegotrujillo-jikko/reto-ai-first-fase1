@@ -41,6 +41,42 @@ hermes doctor      # verifica conexión a proveedores
 hermes setup       # conecta Anthropic / DeepSeek / Moonshot
 ```
 
+### Conectar Hermes al modelo
+
+**Paso 1 — configurar proveedores (primera vez)**
+
+```bash
+hermes setup
+# interactivo — pide API key por proveedor:
+# Anthropic → ANTHROPIC_API_KEY
+# DeepSeek  → DEEPSEEK_API_KEY
+# Moonshot  → MOONSHOT_API_KEY
+
+hermes doctor          # verifica cada proveedor configurado
+hermes config list     # muestra todas las claves activas
+```
+
+**Paso 2 — elegir el modelo activo**
+
+```bash
+hermes model                             # picker interactivo — muestra todos los disponibles
+/model anthropic:claude-sonnet-4-6      # dentro de una sesión Hermes
+/model anthropic:claude-haiku-4-5       # más barato, tareas rutinarias
+/model deepseek:deepseek-coder          # alternativa para código
+```
+
+**Cambio de modelo mid-sesión sin perder contexto:**
+
+```bash
+/model anthropic:claude-opus-4-8        # tarea de razonamiento pesado
+/model anthropic:claude-haiku-4-5       # generación masiva de código (3× más barato)
+/model anthropic:claude-sonnet-4-6      # volver al punto de equilibrio
+```
+
+> Hermes es el orquestador — gestiona contexto y enruta tareas.
+> El modelo que configuras es el implementador. Puedes cambiar el implementador
+> sin reiniciar la sesión ni perder el historial.
+
 ### El ritual /init — por qué importa
 
 ```bash
