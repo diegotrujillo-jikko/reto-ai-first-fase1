@@ -43,17 +43,19 @@ hermes setup       # conecta Anthropic / DeepSeek / Moonshot
 
 ### Conectar Hermes al modelo
 
-**Paso 1 — configurar proveedores (primera vez)**
+**Paso 1 — configurar API keys (primera vez)**
 
 ```bash
-hermes setup
-# interactivo — pide API key por proveedor:
-# Anthropic → ANTHROPIC_API_KEY
-# DeepSeek  → DEEPSEEK_API_KEY
-# Moonshot  → MOONSHOT_API_KEY
+# Opción A — env vars en ~/.zshrc (persistente, recomendado)
+export ANTHROPIC_API_KEY="sk-ant-..."
+export DEEPSEEK_API_KEY="..."
+source ~/.zshrc
 
-hermes doctor          # verifica cada proveedor configurado
-hermes config list     # muestra todas las claves activas
+# Opción B — hermes setup (interactivo, guarda internamente)
+hermes setup
+
+hermes doctor          # confirma qué proveedores están activos
+hermes config list     # muestra claves configuradas (valores enmascarados)
 ```
 
 **Paso 2 — elegir el modelo activo**
