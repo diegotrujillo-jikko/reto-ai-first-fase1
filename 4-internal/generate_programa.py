@@ -227,7 +227,8 @@ def build():
     story += [h1("Etapa 1 — Capacitación · 24–25 jun"), sp(0.2),
               h2("Workshop 1 — Apertura + Codex CLI · Miércoles 24 jun (1–1.5 hrs)"),
               b("Apertura del programa: contexto del “momento cero” y el nuevo modelo operativo AI-first."),
-              b("Instalación y configuración: Claude Code + modelo conectado a Hermes."),
+              b("Instalación: Claude Code (claude.ai/code) + Hermes (curl install → hermes setup)."),
+              b("Verificación: <i>claude --version</i> · <i>hermes doctor</i> — ambos deben responder antes de continuar."),
               b("El ritual /init en vivo sobre un repo vacío: qué genera, por qué importa."),
               b("Navegación básica: slash commands, permisos, modo interactivo vs. autónomo."),
               b(f"Hermes como intermediario obligatorio: toda interacción con modelos pasa por aquí. "
