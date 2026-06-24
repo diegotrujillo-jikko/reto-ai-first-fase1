@@ -158,12 +158,12 @@ Formato: un bloque markdown por spec, sin SQL, solo la descripción.
 ```
 
 Guardar cada respuesta como `phase-1/01-specs/spec_a.md`, `spec_b.md`, `spec_c.md`
-(reemplazar los del repo) y correr el experimento con tu dominio real.
+(reemplazar con paths de tu repo) y correr el ejercicio con tu dominio real.
 
 > El "aha moment" ocurre en el paso Spec A → Spec B: el modelo deja de alucinar
 > nombres de tablas y constraints porque ya los describiste explícitamente.
 
-### Cómo reproducir el experimento (sin W&B)
+### Cómo reproducir el ejercicio (sin W&B)
 
 W&B es solo visualización — el experimento funciona sin él. Solo necesitas Hermes + `ANTHROPIC_API_KEY`.
 
