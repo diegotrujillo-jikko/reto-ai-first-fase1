@@ -355,21 +355,22 @@ def build():
 
     # Track DEV
     story += [
-        h2("Track DEV — Implementa una app similar a mini-tienda-base"),
-        p(f"<b>Misión:</b> En 4 días, implementar una app con la misma estructura que "
-          f"<i>mini-tienda-base</i> — frontend, backend, base de datos e integración — "
-          f"sobre un caso de uso comercial distinto a SILIN, sin escribir código a mano. "
+        h2("Track DEV — Portal de Convocatorias Públicas"),
+        p(f"<b>Misión:</b> En 4 días, implementar el <b>Portal de Convocatorias Públicas</b> "
+          f"— autenticación, backend REST, base de datos e integración con datos.gov.co (SECOP) — "
+          f"sin escribir código a mano. "
           f"Todo se genera y se itera a través de {LLM_NOTE}."),
         sp(0.15),
-        h3("Componentes obligatorios (misma estructura que mini-tienda-base):"),
+        h3("Componentes obligatorios:"),
     ]
     tbl_dev = Table(
         [
             ["Componente", "Requisito"],
-            ["Backend", "Servicio con lógica de negocio y API REST"],
-            ["Frontend", "Interfaz web funcional (equivalente a static/index.html)"],
-            ["Base de datos", "PostgreSQL, SQLite, MongoDB o la de tu preferencia"],
-            ["Integración", "Al menos una integración externa o entre módulos propios"],
+            ["Autenticación", "Registro e inicio de sesión con JWT"],
+            ["Backend", "API REST — búsqueda, filtros, gestión de bookmarks"],
+            ["Frontend", "Interfaz web funcional: browse de convocatorias y favoritos"],
+            ["Base de datos", "PostgreSQL o SQLite — usuarios, bookmarks, búsquedas guardadas"],
+            ["Integración", "datos.gov.co SECOP — consulta en vivo de convocatorias públicas"],
         ],
         colWidths=[4 * cm, W - 4 * cm],
     )
@@ -378,7 +379,7 @@ def build():
     for i, r in enumerate([
         "Cero código manual — solo especificas, diriges, revisas e iteras.",
         f"{LLM_NOTE} — obligatorio e innegociable.",
-        "Caso de uso libre — distinto a SILIN y distinto a mini-tienda.",
+        "Dominio fijo: Portal de Convocatorias. La diferencia la hace la profundidad de tu spec.",
         "Repositorio público (GitHub o GitLab).",
     ], 1):
         dev_rules.append(Paragraph(f"{i}. {r}", S["bullet"]))
@@ -388,7 +389,7 @@ def build():
     story += [KeepTogether([
         h2("Track QA — Diseña y ejecuta una estrategia de pruebas"),
         p(f"<b>Misión:</b> En 4 días, diseñar, automatizar y ejecutar una estrategia de pruebas "
-          f"E2E sobre la aplicación base provista (<i>mini-tienda-base</i>), sin escribir "
+          f"E2E sobre la aplicación base provista (<i>gestor-inventario</i>), sin escribir "
           f"scripts a mano. Se usa {LLM_NOTE}."),
         sp(0.15),
         h3("Requisitos mínimos de entrega:"),
@@ -401,7 +402,7 @@ def build():
             ["Automatización UI / E2E", "Suite automatizada sobre el frontend"],
             ["Pruebas de API", "Contratos, estados HTTP, errores"],
             ["Pruebas de datos e integración",
-             "Validación de BD y de la integración de precios"],
+             "Validación de BD y del servicio de alertas (ALERTS_FAIL=1 → 503)"],
             ["Reporte de defectos",
              "Hallazgos con severidad, pasos de reproducción y evidencia"],
         ],
