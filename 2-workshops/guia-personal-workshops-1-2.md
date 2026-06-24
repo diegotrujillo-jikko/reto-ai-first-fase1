@@ -165,7 +165,7 @@ Guardar cada respuesta como `phase-1/01-specs/spec_a.md`, `spec_b.md`, `spec_c.m
 
 ### Cómo reproducir el ejercicio (sin W&B)
 
-W&B es solo visualización — el experimento funciona sin él. Solo necesitas Hermes + `ANTHROPIC_API_KEY`.
+W&B es solo visualización — el ejercicio funciona sin él. Solo necesitas Hermes + `ANTHROPIC_API_KEY`.
 
 ```bash
 # 1. Clonar
