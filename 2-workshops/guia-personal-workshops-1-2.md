@@ -75,8 +75,10 @@ hermes config list    # ver todas las claves de configuración aceptadas
 - Interactivo (`hermes`): el agente pide confirmación antes de ejecutar
 - Autónomo (`hermes --auto`): ejecuta sin confirmar — usar solo en ramas desechables
 
-### Recursos
+### Videos y recursos
 
+- **800+ horas de Claude Code en 8 minutos** — resumen condensado, ideal para devs: https://www.youtube.com/watch?v=Ffh9OeJ7yxw
+- **Claude Code Tutorial playlist** — workflow completo, CLAUDE.md, MCP, subagentes: https://www.youtube.com/playlist?list=PL4cUxeGkcC9g4YJeBqChhFJwKQ9TRiivY
 - **Claude Code docs** — quickstart oficial: https://code.claude.com/docs/en/overview
 - **Claude Code slash commands** — referencia completa de comandos: https://docs.anthropic.com/en/docs/claude-code/slash-commands
 - **Repositorio Hermes**: https://github.com/NousResearch/hermes-agent
