@@ -1,4 +1,4 @@
-# Mi experiencia: Codex CLI + Spec Engineering
+# Mi experiencia: Claude Code + Spec Engineering
 ### Guía rápida para el equipo dev — Jikkosoft AI-First
 *Diego Trujillo · Etapa 1 · Miércoles 24 jun 2026*
 
@@ -13,30 +13,26 @@ output de producción. Eso lo confirma el experimento interno `hermes-explorator
 
 ---
 
-## Workshop 1 — Codex CLI + Claude Code + Hermes
+## Workshop 1 — Claude Code + Hermes
 
-### Por qué dos CLIs
+### Las herramientas
 
 | Herramienta | Rol |
 |---|---|
-| **Codex CLI** (OpenAI) | Agente de código en terminal — ejecuta, edita, crea archivos |
-| **Claude Code** (Anthropic) | Agente de código en terminal — alternativa/complemento |
+| **Claude Code** (Anthropic) | Agente de código en terminal — ejecuta, edita, crea archivos, razona sobre el código |
 | **Hermes** (NousResearch) | Capa de orquestación: selecciona el modelo y administra el contexto |
 
-**Regla del programa:** toda interacción con LLMs pasa por Hermes. Codex y
-Claude Code son los "ejecutores" — Hermes decide cuándo usar cuál.
+**Regla del programa:** toda interacción con LLMs pasa por Hermes. Claude Code
+es el ejecutor — Hermes elige el modelo correcto para cada tarea.
 
-### Instalación en 3 pasos
+### Instalación en 2 pasos
 
 ```bash
-# 1. Codex CLI
-npm install -g @openai/codex   # requiere Node 18+
-codex --version
-
-# 2. Claude Code
+# 1. Claude Code
 # Descargar desde https://claude.ai/code o seguir la guía oficial
+claude --version   # verifica instalación
 
-# 3. Hermes
+# 2. Hermes
 curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
 hermes doctor      # verifica conexión a proveedores
 hermes setup       # conecta Anthropic / DeepSeek / Moonshot
@@ -80,7 +76,6 @@ hermes config list    # ver todas las claves de configuración aceptadas
 
 - **Anthropic YouTube** — tutoriales y demos de Claude Code: https://www.youtube.com/@Anthropic
 - **Claude Code docs** — quickstart oficial: https://code.claude.com/docs/en/overview
-- **Repositorio Codex CLI**: https://github.com/openai/codex
 - **Repositorio Hermes**: https://github.com/NousResearch/hermes-agent
 
 ---
@@ -159,7 +154,7 @@ el punto del checklist que falta. Casi siempre es el 4, 5 o 7.
 ## TL;DR para el equipo
 
 ```
-1. Instala: Codex CLI + Claude Code + Hermes
+1. Instala: Claude Code + Hermes
 2. En cada repo nuevo: claude /init  →  expande el CLAUDE.md generado
 3. Antes de pedir cualquier cosa al modelo: escribe la spec (mínimo Spec B)
 4. Si el output es malo: mejora la spec, no cambies el modelo
