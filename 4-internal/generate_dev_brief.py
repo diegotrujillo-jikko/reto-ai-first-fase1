@@ -191,19 +191,19 @@ def build():
            "importante como el código: es la evidencia de cómo construiste."),
         n(3, "Demo corta (5–7 min) el viernes de la semana del reto."),
         sp(0.3),
-        Paragraph("Plantilla del entregable SOUL.md", S["h2"]),
     ]
-    for item in [
-        "Proyecto: qué construiste y qué problema resuelve",
-        "Stack y arquitectura: componentes y cómo se conectan",
-        "Cómo usaste Hermes y los LLMs: skills/instrucciones clave, specs o prompts que mejor funcionaron, iteraciones",
-        "Decisiones y trade-offs: qué elegiste y por qué",
-        "Bloqueos y cómo los resolviste",
-        "Qué mejorarías o pedirías",
-        "Enlace al repositorio",
-    ]:
-        story.append(b(item))
-    story.append(sp(0.5))
+    soul_items = [
+        Paragraph("Plantilla del entregable SOUL.md", S["h2"]),
+        b("Proyecto: qué construiste y qué problema resuelve"),
+        b("Stack y arquitectura: componentes y cómo se conectan"),
+        b("Cómo usaste Hermes y los LLMs: skills/instrucciones clave, specs o prompts que mejor funcionaron, iteraciones"),
+        b("Decisiones y trade-offs: qué elegiste y por qué"),
+        b("Bloqueos y cómo los resolviste"),
+        b("Qué mejorarías o pedirías"),
+        b("Enlace al repositorio"),
+        sp(0.5),
+    ]
+    story.append(KeepTogether(soul_items))
 
     # ── 6. Cronograma ────────────────────────────────────────────────────────
     story += [PageBreak(), h1("6. Cronograma (tentativo)"), sp(0.4)]
