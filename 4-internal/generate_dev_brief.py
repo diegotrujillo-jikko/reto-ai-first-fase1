@@ -126,7 +126,7 @@ def build():
     story += [
         h1("2. El reto en una frase"),
         sp(0.4),
-        p(f"En 4 días, implementa el <b>Portal de Convocatorias Públicas</b> — una app con "
+        p(f"En 6 días hábiles, implementa el <b>Portal de Convocatorias Públicas</b> — una app con "
           f"autenticación, backend, base de datos e integración con datos.gov.co — "
           f"sin escribir código a mano: todo se genera y se itera a través de {LLM_NOTE}."),
         sp(0.5),

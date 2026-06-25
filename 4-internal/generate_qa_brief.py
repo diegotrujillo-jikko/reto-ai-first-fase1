@@ -133,7 +133,7 @@ def build():
     story += [
         h1("2. El reto en una frase"),
         sp(0.4),
-        p(f"En 4 días, diseña y ejecuta una estrategia de pruebas completa sobre "
+        p(f"En 6 días hábiles, diseña y ejecuta una estrategia de pruebas completa sobre "
           f"<b>gestor-inventario</b> — la app incluida en este repositorio — sin escribir "
           f"scripts a mano: todo se genera y se itera a través de {LLM_NOTE}. "
           f"El objetivo es <b>probar la app, no modificarla</b>."),
