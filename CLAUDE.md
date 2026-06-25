@@ -143,6 +143,6 @@ Recommended tools: **Playwright** for E2E/UI, **pytest + httpx** for API.
 | `SOUL.md` | Process log: scope, tooling, AI usage, decisions, findings, blockers |
 | Test plan doc | Strategy, scope, risks, acceptance criteria |
 | Test cases | Happy path + edge + negative, documented |
-| Automated E2E suite | Playwright or equivalent, runnable against localhost:8000 |
-| API test suite | Contract + error validation |
+| API test suite | Contract + error validation — generated with Hermes + LLM, runnable with `pytest` |
+| E2E suite _(desirable)_ | Playwright or equivalent against localhost:8000 — AI-generated if time allows |
 | Defect report | Findings with severity, repro steps, evidence |

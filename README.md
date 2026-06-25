@@ -59,8 +59,8 @@ Diseñar y ejecutar una estrategia de pruebas completa sobre `3-challenge/gestor
 | `SOUL.md` | Log del proceso: scope, tooling, decisiones, hallazgos, blockers |
 | Plan de pruebas | Estrategia, alcance, riesgos, criterios de aceptación |
 | Casos de prueba | Happy path + edge + negativos, documentados |
-| Suite E2E automatizada | Playwright o equivalente, ejecutable contra localhost:8000 |
-| Suite API | Contrato + validación de errores |
+| Suite API | Contrato + validación de errores — generada con Hermes + LLM, ejecutable con `pytest` |
+| Suite E2E _(deseable)_ | Playwright o equivalente contra localhost:8000 — generada con IA si el tiempo lo permite |
 | Reporte de defectos | Hallazgos con severidad, pasos de reproducción, evidencia |
 
 ## Gestor de Inventario (SUT — Track QA)
