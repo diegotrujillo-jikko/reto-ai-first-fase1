@@ -123,17 +123,6 @@ Los demás endpoints (`GET /api/products`, `POST /api/products`, `IN` movements,
 | GET | `/api/stock/alerts` | Productos con stock ≤ mínimo (503 si ALERTS_FAIL) |
 | GET | `/api/movements` | Historial de movimientos |
 
-### Aislamiento de base de datos para pruebas
-
-`DB_PATH` controla el archivo SQLite que usa la app. Arrancando una segunda instancia con una DB distinta, los tests no contaminan los datos de desarrollo.
-
-**Por qué importa para QA:**
-- Tests que crean productos o registran movimientos no afectan `inventario.db` (dev)
-- `rm test.db` antes de cada run garantiza estado limpio (seed fresco reproducible)
-- Se puede correr la suite en paralelo contra `:8001` mientras se revisa la app en `:8000`
-- Cada ejecución parte del mismo estado inicial — sin SKUs duplicados ni stock incorrecto de runs previos
-
-
 ### Dimensiones de cobertura esperadas
 
 - Contrato de API — status codes, campos requeridos, shapes de error
