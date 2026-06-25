@@ -125,11 +125,7 @@ Los demás endpoints (`GET /api/products`, `POST /api/products`, `IN` movements,
 
 ### Aislamiento de base de datos para pruebas
 
-`DB_PATH` controla el archivo SQLite que usa la app. Arrancando una segunda instancia con una DB distinta, los tests no contaminan los datos de desarrollo:
-
-```bash
-DB_PATH=test.db uvicorn app:app --port 8001
-```
+`DB_PATH` controla el archivo SQLite que usa la app. Arrancando una segunda instancia con una DB distinta, los tests no contaminan los datos de desarrollo.
 
 **Por qué importa para QA:**
 - Tests que crean productos o registran movimientos no afectan `inventario.db` (dev)
