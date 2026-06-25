@@ -73,9 +73,6 @@ uvicorn app:app --port 8000
 
 # Simulate alert service failure
 ALERTS_FAIL=1 uvicorn app:app --port 8000
-
-# Use a separate DB for tests (avoid polluting dev data)
-DB_PATH=test.db uvicorn app:app --port 8001
 ```
 
 App runs at `http://localhost:8000`. Interactive API docs at `http://localhost:8000/docs`.
@@ -107,7 +104,7 @@ All monetary amounts are in **centavos** (integer cents).
   docker-compose.yml
 ```
 
-SQLite DB (`inventario.db`) is created and seeded on first startup. The `DB_PATH` env var controls the DB file location — use a separate file for test isolation.
+SQLite DB (`inventario.db`) is created and seeded on first startup.
 
 The "alert service" is an internal function (`alert_service`) — not an external HTTP call. It is toggled via `ALERTS_FAIL=1`.
 
