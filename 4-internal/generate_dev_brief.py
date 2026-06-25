@@ -217,7 +217,7 @@ def build():
             [tc("Día", hdr=True), tc("Fecha", hdr=True), tc("Foco", hdr=True)],
             [tc("Apertura"), tc("Vie 26 jun"),
              tc("Lanzamiento del reto, ruta de aprendizaje, inicio de construcción")],
-            [tc("Días 1–7"), tc("Lun–Dom 30 jun – 6 jul"),
+            [tc("Días 1–5"), tc("Lun–Vie 30 jun – 4 jul"),
              tc("Construcción + puntos de control diarios")],
             [tc("Evaluación"), tc("Mar 7 jul"),
              tc("Demos y revisión por grupos")],

@@ -269,7 +269,7 @@ def build():
             [tc("Dia", hdr=True), tc("Fecha", hdr=True), tc("Foco", hdr=True)],
             [tc("Apertura"), tc("Vie 26 jun"),
              tc("Lanzamiento del reto, exploracion de la app, diseno de estrategia")],
-            [tc("Dias 1-7"), tc("Lun-Dom 30 jun - 6 jul"),
+            [tc("Dias 1-5"), tc("Lun-Vie 30 jun - 4 jul"),
              tc("Generacion de suites + ejecucion + reporte de defectos")],
             [tc("Evaluacion"), tc("Mar 7 jul"),
              tc("Demos y revision de hallazgos por grupos")],
