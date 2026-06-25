@@ -137,18 +137,6 @@ DB_PATH=test.db uvicorn app:app --port 8001
 - Se puede correr la suite en paralelo contra `:8001` mientras se revisa la app en `:8000`
 - Cada ejecución parte del mismo estado inicial — sin SKUs duplicados ni stock incorrecto de runs previos
 
-**Flujo típico en pytest:**
-
-```bash
-# Python local
-DB_PATH=test.db uvicorn app:app --port 8001 &
-pytest tests/ --base-url=http://localhost:8001
-rm test.db
-
-# Docker — pasar DB_PATH al servicio y mapear a puerto distinto
-DB_PATH=test.db docker compose run --rm -p 8001:8000 gestor-inventario &
-pytest tests/ --base-url=http://localhost:8001
-```
 
 ### Dimensiones de cobertura esperadas
 
