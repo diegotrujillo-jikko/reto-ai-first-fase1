@@ -140,14 +140,14 @@ DB_PATH=test.db uvicorn app:app --port 8001
 **Flujo típico en pytest:**
 
 ```bash
-# 1. Arrancar instancia aislada
+# Python local
 DB_PATH=test.db uvicorn app:app --port 8001 &
-
-# 2. Correr suite
 pytest tests/ --base-url=http://localhost:8001
-
-# 3. Limpiar
 rm test.db
+
+# Docker — pasar DB_PATH al servicio y mapear a puerto distinto
+DB_PATH=test.db docker compose run --rm -p 8001:8000 gestor-inventario &
+pytest tests/ --base-url=http://localhost:8001
 ```
 
 ### Dimensiones de cobertura esperadas
