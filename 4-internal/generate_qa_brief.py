@@ -172,7 +172,6 @@ def build():
         Paragraph("pip install -r requirements.txt &amp;&amp; uvicorn app:app --port 8000", S["code"]),
         Paragraph("# Con Docker:  docker compose up --build", S["code"]),
         Paragraph("# Fallo de integracion:  ALERTS_FAIL=1 uvicorn app:app --port 8000", S["code"]),
-        Paragraph("# DB aislada para pruebas:  DB_PATH=test.db uvicorn app:app --port 8001", S["code"]),
         note("Todos los montos son en centavos (integer). La app siembra 3 proveedores y 6 productos al primer arranque."),
         sp(0.5),
     ]
