@@ -90,11 +90,25 @@ Abre `http://localhost:8000` para el frontend y `http://localhost:8000/docs` par
 
 ### Simular fallo del servicio de alertas
 
+La variable de entorno `ALERTS_FAIL=1` debe pasarse **al arrancar el servidor**, no como variable de sesión aparte:
+
 ```bash
+# Python local — prefijo en el mismo comando
 ALERTS_FAIL=1 uvicorn app:app --port 8000
+
+# Docker — variable en el servicio
+ALERTS_FAIL=1 docker compose up --build
+
+# Verificar que está activo
+curl http://localhost:8000/api/stock/alerts
+# → HTTP 503  {"detail": "Servicio de alertas no disponible"}
 ```
 
-Con esta variable activa, `/api/stock/alerts` y `POST /api/stock/movement` (type=OUT) retornan 503.
+Con `ALERTS_FAIL=1` activo, estos dos endpoints retornan 503:
+- `GET /api/stock/alerts`
+- `POST /api/stock/movement` con `type=OUT`
+
+Los demás endpoints (`GET /api/products`, `POST /api/products`, `IN` movements, etc.) siguen respondiendo con normalidad.
 
 ### Endpoints principales
 
