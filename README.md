@@ -125,8 +125,29 @@ Los demás endpoints (`GET /api/products`, `POST /api/products`, `IN` movements,
 
 ### Aislamiento de base de datos para pruebas
 
+`DB_PATH` controla el archivo SQLite que usa la app. Arrancando una segunda instancia con una DB distinta, los tests no contaminan los datos de desarrollo:
+
 ```bash
 DB_PATH=test.db uvicorn app:app --port 8001
+```
+
+**Por qué importa para QA:**
+- Tests que crean productos o registran movimientos no afectan `inventario.db` (dev)
+- `rm test.db` antes de cada run garantiza estado limpio (seed fresco reproducible)
+- Se puede correr la suite en paralelo contra `:8001` mientras se revisa la app en `:8000`
+- Cada ejecución parte del mismo estado inicial — sin SKUs duplicados ni stock incorrecto de runs previos
+
+**Flujo típico en pytest:**
+
+```bash
+# 1. Arrancar instancia aislada
+DB_PATH=test.db uvicorn app:app --port 8001 &
+
+# 2. Correr suite
+pytest tests/ --base-url=http://localhost:8001
+
+# 3. Limpiar
+rm test.db
 ```
 
 ### Dimensiones de cobertura esperadas
