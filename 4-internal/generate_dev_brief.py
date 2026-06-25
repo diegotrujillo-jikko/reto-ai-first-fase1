@@ -206,7 +206,6 @@ def build():
     story.append(KeepTogether(soul_items))
 
     # ── 6. Cronograma ────────────────────────────────────────────────────────
-    story += [PageBreak(), h1("6. Cronograma (tentativo)"), sp(0.4)]
     tc_hdr = ParagraphStyle("tc_hdr", fontName="DejaVu-Bold", fontSize=9,
                             textColor=WHITE, leading=13)
     tc_body = ParagraphStyle("tc_body", fontName="DejaVu", fontSize=8.5,
@@ -226,10 +225,13 @@ def build():
         colWidths=[2.5 * cm, 2.5 * cm, W - 5 * cm],
     )
     tbl_cron.setStyle(tbl_style())
-    story += [tbl_cron, sp(0.3),
-              note("Punto de control diario: un reporte breve (3 líneas) de avance + bloqueos, "
-                   "vía Hermes/Drive. Sirve para acompañarte, no para vigilarte."),
-              sp(0.3)]
+    story.append(KeepTogether([
+        h1("6. Cronograma (tentativo)"), sp(0.4),
+        tbl_cron, sp(0.3),
+        note("Punto de control diario: un reporte breve (3 líneas) de avance + bloqueos, "
+             "vía Hermes/Drive. Sirve para acompañarte, no para vigilarte."),
+        sp(0.3),
+    ]))
 
     # ── 7. Créditos ──────────────────────────────────────────────────────────
     story += [
