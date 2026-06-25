@@ -74,4 +74,5 @@ git-crypt has no built-in revoke. Steps:
 
 | Pattern | Why |
 |---------|-----|
-| `docs/*interna*` | Internal evaluation docs — not for participants |
+| `4-internal/*interna*` | Internal evaluation docs — not for participants |
+| `4-internal/input_*` | Internal input files — not for participants |
